@@ -35,20 +35,20 @@
     }
   },
   "TG": {
-    "启用": false,
-    "BotToken": null,
-    "ChatID": null
+    "启用": true,
+    "BotToken": "820*****************************************TI",
+    "ChatID": "6946996027"
   },
   "CF": {
     "Email": null,
     "GlobalAPIKey": null,
-    "AccountID": null,
-    "APIToken": null,
+    "AccountID": "6d7***************************90",
+    "APIToken": "duN***********************************fs",
     "Usage": {
-      "success": false,
-      "pages": 0,
-      "workers": 0,
-      "total": 0
+      "success": true,
+      "pages": 249,
+      "workers": 500,
+      "total": 749
     }
   },
   "PATH": "/",
