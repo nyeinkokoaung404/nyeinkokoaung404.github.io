@@ -1271,11 +1271,16 @@
 
         .module-footer {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
             gap: 10px;
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid #e5e7eb
+        }
+
+        .module-footer .btn-group {
+            margin-left: auto;
         }
 
         .collapse-section {
@@ -1334,6 +1339,11 @@
         }
 
         @media(max-width:768px) {
+            .optimize-params-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
             .card-container {
                 padding: 20px;
                 margin: 0
@@ -1387,6 +1397,22 @@
         .btn-all-logs {
             background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
             flex-shrink: 0;
+        }
+
+        .btn-online-optimize {
+            background: linear-gradient(135deg, #10b981 0, #059669 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-online-optimize:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-online-optimize:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
         }
 
         .btn-close-modal {
@@ -1561,6 +1587,216 @@
             flex: 1;
         }
 
+        /* 在线优选模态框样式 */
+        .optimize-modal {
+            overflow-y: auto;
+            width: 90vw;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .optimize-modal-title {
+            margin-bottom: 20px;
+        }
+
+        .ip-detection-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 20px;
+        }
+
+        .optimize-params-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: flex-end;
+        }
+
+        .optimize-concurrency-input {
+            width: 100%;
+            max-width: none;
+        }
+
+        @media (max-width: 768px) {
+            .optimize-params-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ip-detection-info {
+            font-size: 14px;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .ip-detection-warning {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .optimize-progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #4b5563;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .optimize-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            transition: width 0.3s ease, background 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 15px;
+        }
+
+        .optimize-progress-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .optimize-results-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .optimize-tab {
+            padding: 8px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .optimize-tab:hover {
+            border-color: #10b981;
+        }
+
+        .optimize-tab.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-color: #10b981;
+        }
+
+        .optimize-results-content {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 200px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.1;
+            text-align: left;
+        }
+
+        .optimize-result-item {
+            padding: 1px 0;
+            color: #1f2937;
+            text-align: left;
+        }
+
+        .optimize-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn-start-optimize {
+            background: linear-gradient(135deg, #10b981 0, #059669 100%);
+            color: #fff;
+        }
+
+        .btn-save-override,
+        .btn-save-append {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-save-override:not([disabled]),
+        .btn-save-append:not([disabled]) {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .save-tip {
+            font-size: 12px;
+            color: #7a7f88;
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            min-height: 32px;
+            margin-right: auto;
+        }
+
+        .btn-save-override {
+            background: linear-gradient(135deg, #f59e0b 0, #d97706 100%);
+            color: #fff;
+        }
+
+        .btn-save-append {
+            background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        html.dark-mode .ip-detection-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        html.dark-mode .ip-detection-info {
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .optimize-progress-bar {
+            background: #1f2937;
+        }
+
+        html.dark-mode .optimize-tab {
+            background: var(--input-bg);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .optimize-tab.active {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        html.dark-mode .optimize-results-content {
+            background: var(--input-bg);
+        }
+
+        html.dark-mode .optimize-result-item {
+            color: var(--text-primary);
+        }
+
         /* 消息通知设置样式 */
         .notification-row {
             display: flex;
@@ -1712,14 +1948,16 @@
             border-radius: 20px;
         }
 
-.cf-progress-bar {
-    position: relative;
-    height: 28px;
-    background: linear-gradient(90deg, #9ca3af 0%, #6b7280 100%);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-}        .cf-bar-segment {
+        .cf-progress-bar {
+            position: relative;
+            height: 28px;
+            background: linear-gradient(90deg, #9ca3af 0%, #6b7280 100%);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .cf-bar-segment {
             position: absolute;
             height: 100%;
             border-radius: 0;
@@ -1807,6 +2045,7 @@
             .cf-info-text br {
                 display: none;
             }
+
             .cf-info-text {
                 white-space: nowrap;
             }
@@ -1816,6 +2055,7 @@
             .cf-info-text br {
                 display: block;
             }
+
             .cf-info-text {
                 white-space: normal;
             }
@@ -1841,9 +2081,11 @@
             background: rgba(251, 191, 36, 0.1);
         }
 
-html.dark-mode .cf-progress-bar {
-    background: linear-gradient(90deg, #111827 0%, #0f172a 100%);
-}        html.dark-mode .cf-percentage-center {
+        html.dark-mode .cf-progress-bar {
+            background: linear-gradient(90deg, #111827 0%, #0f172a 100%);
+        }
+
+        html.dark-mode .cf-percentage-center {
             color: white;
         }
 
@@ -1948,7 +2190,10 @@ html.dark-mode .cf-progress-bar {
                         <div class="cf-info-box">
                             <div class="cf-info-icon">ℹ️</div>
                             <div class="cf-info-text">
-                                <strong>每日请求数重置清零：</strong><br><span id="countdown" class="cf-highlight">距离重置时间还有 15小时 24分 34秒</span>，<br>北京时间 (UTC+8) 每天 <strong class="cf-highlight">8:00</strong>重置<br>，今日使用情况总计：<strong class="cf-highlight" id="cfTotalDisplay">-</strong>。
+                                <strong>每日请求数重置清零：</strong><br><span id="countdown" class="cf-highlight">距离重置时间还有 15小时
+                                    24分 34秒</span>，<br>北京时间 (UTC+8) 每天 <strong
+                                    class="cf-highlight">8:00</strong>重置<br>，今日使用情况总计：<strong class="cf-highlight"
+                                    id="cfTotalDisplay">-</strong>。
                             </div>
                         </div>
                     </div>
@@ -2043,6 +2288,8 @@ html.dark-mode .cf-progress-bar {
                     </div>
 
                     <div class="module-footer">
+                        <button type="button" class="btn btn-online-optimize hidden-section" id="onlineOptimizeBtn"
+                            onclick="openOnlineOptimizeModal()">在线优选</button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('sub')" disabled
                                 id="cancelSubBtn">取消</button>
@@ -2481,6 +2728,78 @@ html.dark-mode .cf-progress-bar {
         </div>
     </div>
 
+    <!-- 在线优选弹窗 -->
+    <div class="modal-overlay" id="onlineOptimizeModal" onclick="closeOnlineOptimizeModal(event)">
+        <div class="modal optimize-modal" onclick="event.stopPropagation()">
+            <button type="button" class="modal-close" onclick="closeOnlineOptimizeModal()">×</button>
+            <h2 class="optimize-modal-title">🚀 在线优选</h2>
+
+            <!-- IP检测信息 -->
+            <div id="ipDetectionBox" class="ip-detection-box">
+                <div class="ip-detection-info">
+                    正在检测您的网络环境...
+                </div>
+            </div>
+
+            <!-- 参数选择 -->
+            <div class="optimize-params-row">
+                <div class="form-group">
+                    <label for="optimizeIPLibrary">IP库：</label>
+                    <select id="optimizeIPLibrary">
+                        <option value="cf-official">CF官方列表</option>
+                        <option value="cm-list">CM整理列表</option>
+                        <option value="as13335">AS13335列表</option>
+                        <option value="as209242">AS209242列表</option>
+                        <option value="reverse-proxy">反向代理列表</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="optimizePort">端口：</label>
+                    <select id="optimizePort">
+                        <option value="443">443</option>
+                        <option value="2053">2053</option>
+                        <option value="2083">2083</option>
+                        <option value="2087">2087</option>
+                        <option value="2096">2096</option>
+                        <option value="8443">8443</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="optimizeConcurrency">测试线程数：</label>
+                    <input type="number" id="optimizeConcurrency" min="1" max="32" value="8" 
+                        class="optimize-concurrency-input" placeholder="1-32" 
+                        oninput="validateConcurrency(this)" onchange="validateConcurrency(this)">
+                </div>
+            </div>
+
+            <!-- 进度条 -->
+            <div class="optimize-progress-bar hidden-section" id="optimizeProgressBar">
+                <div class="optimize-progress-fill" id="optimizeProgressFill"></div>
+                <div class="optimize-progress-text" id="optimizeProgressText">0/512 (0.00%) - 成功: 0, 失败: 0</div>
+            </div>
+
+            <!-- 结果选项卡 -->
+            <div id="optimizeResultsTabs" class="optimize-results-tabs hidden-section"></div>
+
+            <!-- 结果内容 -->
+            <div id="optimizeResultsContent" class="optimize-results-content hidden-section"></div>
+            
+            <!-- 按钮组 -->
+            <div class="optimize-buttons">
+                <span class="save-tip">💡 保存提示：仅保存延迟最低的前16个优选IP</span>
+                <button type="button" class="btn btn-start-optimize" id="btnStartOptimize"
+                    onclick="startOptimize()">开始优选</button>
+                <button type="button" class="btn btn-save-override" id="btnSaveOverride"
+                    onclick="saveOptimizeResults('override')" disabled>覆盖保存</button>
+                <button type="button" class="btn btn-save-append" id="btnSaveAppend"
+                    onclick="saveOptimizeResults('append')" disabled>追加保存</button>
+                <button type="button" class="btn btn-secondary" onclick="closeOnlineOptimizeModal()">关闭</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let currentConfig = {};
         let originalConfig = {};
@@ -2524,7 +2843,7 @@ html.dark-mode .cf-progress-bar {
                 originalConfig = JSON.parse(JSON.stringify(currentConfig));
                 renderUI();
                 // 设置网页标题
-                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'}设置页面 - 管理后台`;
+                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel'} 设置页面 - 管理后台`;
             } catch (error) {
                 showToast('加载配置失败: ' + error.message, 'error');
             }
@@ -2532,7 +2851,7 @@ html.dark-mode .cf-progress-bar {
 
         function renderUI() {
             // 标题
-            document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel') + '设置页面';
+            document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'edgetunnel') + ' 设置页面';
 
             // 检查 CF 使用情况并显示模块
             const cfUsageModule = document.getElementById('cfUsageModule');
@@ -2688,6 +3007,16 @@ html.dark-mode .cf-progress-bar {
             document.getElementById('randomIPSection').style.display = mode === 'random' ? 'grid' : 'none';
             document.getElementById('customIPSection').style.display = mode === 'custom' ? 'block' : 'none';
             document.getElementById('generatorSection').style.display = mode === 'generator' ? 'grid' : 'none';
+
+            // 显示或隐藏在线优选按钮（仅在自定义优选模式下显示）
+            const onlineOptimizeBtn = document.getElementById('onlineOptimizeBtn');
+            if (onlineOptimizeBtn) {
+                if (mode === 'custom') {
+                    onlineOptimizeBtn.classList.remove('hidden-section');
+                } else {
+                    onlineOptimizeBtn.classList.add('hidden-section');
+                }
+            }
 
             // 当切换到自定义优选时，自动加载现有的ADD.txt内容
             if (mode === 'custom') {
@@ -4095,13 +4424,724 @@ html.dark-mode .cf-progress-bar {
             const nextMidnightUTC = new Date(now);
             nextMidnightUTC.setUTCHours(0, 0, 0, 0);
             nextMidnightUTC.setUTCDate(nextMidnightUTC.getUTCDate() + 1); // 总是设置为明天的0点
-            
+
             const diff = nextMidnightUTC - now;
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
+
             document.getElementById('countdown').innerHTML = `<span class="countdown-text">距离重置时间还有</span> <span class="countdown-numbers">${hours.toString().padStart(2, '0')}</span><span class="countdown-text">小时</span><span class="countdown-numbers">${minutes.toString().padStart(2, '0')}</span><span class="countdown-text">分</span><span class="countdown-numbers">${seconds.toString().padStart(2, '0')}</span><span class="countdown-text">秒</span>`;
+        }
+
+        // ==================== 在线优选相关函数 ====================
+
+        // IP打码函数 - 将IP最后一位替换为*
+        function maskIP(ip) {
+            const parts = ip.split('.');
+            if (parts.length === 4) {
+                return parts[0] + '.*.*.' + parts[3];
+            }
+            return ip;
+        }
+
+        // 切换IP显示模式
+        function toggleIPDisplay() {
+            ipDisplayMode = ipDisplayMode === 'masked' ? 'full' : 'masked';
+            updateIPDisplay();
+        }
+
+        // 更新IP显示
+        function updateIPDisplay() {
+            const displayIP = ipDisplayMode === 'masked' ? maskIP(currentDetectedIP) : currentDetectedIP;
+            const ipElement = document.getElementById('ipDisplayElement');
+            if (ipElement) {
+                ipElement.textContent = displayIP;
+            }
+        }
+
+        let optimizeResults = {}; // 存储优选结果
+        let currentSelectedCountry = ''; // 当前选中的国家
+        let locationsData = []; // 存储位置数据
+        let currentIPLibrary = ''; // 当前使用的IP库类型
+        let currentDetectedIP = ''; // 当前检测到的IP
+        let ipDisplayMode = 'masked'; // IP显示模式: 'masked' 或 'full'
+
+        // 打开在线优选模态框
+        async function openOnlineOptimizeModal() {
+            document.getElementById('onlineOptimizeModal').classList.add('show');
+
+            // 重置状态
+            optimizeResults = {};
+            currentSelectedCountry = '';
+            document.getElementById('optimizeProgressBar').classList.add('hidden-section');
+            document.getElementById('optimizeResultsTabs').classList.add('hidden-section');
+            document.getElementById('optimizeResultsContent').classList.add('hidden-section');
+            document.getElementById('btnSaveOverride').disabled = true;
+            document.getElementById('btnSaveAppend').disabled = true;
+            document.getElementById('btnStartOptimize').disabled = true;
+            document.getElementById('btnStartOptimize').textContent = '检测中...';
+
+            // 检测IP和环境
+            await detectIPAndEnvironment();
+        }
+
+        // 关闭在线优选模态框
+        function closeOnlineOptimizeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('onlineOptimizeModal').classList.remove('show');
+        }
+
+        // 检测IP和网络环境
+        async function detectIPAndEnvironment() {
+            console.log('[在线优选] 开始检测网络环境...');
+            const detectionBox = document.getElementById('ipDetectionBox');
+            const btnStart = document.getElementById('btnStartOptimize');
+            detectionBox.innerHTML = '<div class="ip-detection-info">正在检测您的网络环境...</div>';
+
+            try {
+                const response = await fetch(`https://speed.cloudflare.com/cdn-cgi/trace?t=${Date.now()}`);
+                const text = await response.text();
+                console.log('[在线优选] 检测响应:', text);
+
+                // 解析响应
+                const lines = text.trim().split('\n');
+                const data = {};
+                lines.forEach(line => {
+                    const [key, value] = line.split('=');
+                    if (key && value) data[key] = value;
+                });
+
+                const ip = data.ip || '未知';
+                const loc = data.loc || '未知';
+                currentDetectedIP = ip; // 保存完整IP
+                ipDisplayMode = 'masked'; // 默认显示打码IP
+                console.log(`[在线优选] 检测结果 - IP: ${ip}, 国家: ${loc}`);
+
+                // 显示打码的IP，并添加点击事件
+                const displayIP = maskIP(ip);
+                let html = `<div class="ip-detection-info">当前访问IP: <strong id="ipDisplayElement" style="cursor: pointer; transition: all 0.2s ease;" title="点击切换显示模式">${displayIP}</strong> | 访问国家: <strong>${loc}</strong></div>`;
+
+                if (loc !== 'CN') {
+                    console.warn('[在线优选] 警告: 检测到非CN地区访问，可能处于代理/VPN环境');
+                    html += `<div class="ip-detection-warning" style="font-size: 16px; font-weight: 700; color: #dc2626; margin-top: 12px; line-height: 1.6;">⚠️ 检测到您当前很可能处于代理/VPN环境中！请确保处于直连网络环境下再进行在线优选，否则优选测试结果将因为不准确变得毫无意义！</div>`;
+                    // 非CN地区，禁用开始优选按钮
+                    btnStart.disabled = true;
+                    btnStart.textContent = '仅限CN地区';
+                } else {
+                    // CN地区，启用开始优选按钮
+                    btnStart.disabled = false;
+                    btnStart.textContent = '开始优选';
+                    console.log('[在线优选] CN地区检测通过，已启用优选按钮');
+                }
+
+                detectionBox.innerHTML = html;
+
+                // 为IP元素添加点击事件
+                const ipElement = document.getElementById('ipDisplayElement');
+                if (ipElement) {
+                    ipElement.addEventListener('click', toggleIPDisplay);
+                }
+            } catch (error) {
+                console.error('[在线优选] 检测失败:', error);
+                detectionBox.innerHTML = '<div class="ip-detection-info">⚠️ 无法检测网络环境，请检查网络连接</div>';
+                // 检测失败，禁用按钮
+                btnStart.disabled = true;
+                btnStart.textContent = '检测失败';
+            }
+        }
+
+        // 验证测试线程数输入
+        function validateConcurrency(input) {
+            let value = parseInt(input.value);
+            if (isNaN(value) || value < 1) {
+                input.value = 1;
+            } else if (value > 32) {
+                input.value = 32;
+            }
+        }
+
+        // 开始优选
+        async function startOptimize() {
+            console.log('[在线优选] ========== 开始优选流程 ==========');
+            const btnStart = document.getElementById('btnStartOptimize');
+            btnStart.disabled = true;
+            btnStart.textContent = '优选中...';
+
+            const progressBar = document.getElementById('optimizeProgressBar');
+            const progressFill = document.getElementById('optimizeProgressFill');
+            const progressText = document.getElementById('optimizeProgressText');
+            progressBar.classList.remove('hidden-section');
+            progressFill.style.width = '0%';
+            progressText.textContent = '0/512 (0.00%)';
+
+            document.getElementById('optimizeResultsTabs').classList.add('hidden-section');
+            document.getElementById('optimizeResultsContent').classList.add('hidden-section');
+
+            try {
+                // 加载locations数据
+                console.log('[在线优选] 步骤1: 加载位置数据...');
+                await loadLocationsData();
+
+                // 获取用户选择
+                const ipLibrary = document.getElementById('optimizeIPLibrary').value;
+                const port = document.getElementById('optimizePort').value;
+                let concurrency = parseInt(document.getElementById('optimizeConcurrency').value) || 8;
+                
+                // 验证并发线程数
+                if (isNaN(concurrency) || concurrency < 1 || concurrency > 32) {
+                    concurrency = 8;
+                    document.getElementById('optimizeConcurrency').value = '8';
+                }
+                
+                console.log(`[在线优选] 步骤2: 用户选择 - IP库: ${ipLibrary}, 端口: ${port}, 并发线程: ${concurrency}`);
+                currentIPLibrary = ipLibrary; // 保存当前IP库类型
+
+                // 获取IP列表
+                console.log('[在线优选] 步骤3: 获取IP列表...');
+                const ips = await getIPList(ipLibrary, port);
+
+                if (ips.length === 0) {
+                    console.error('[在线优选] 错误: 未能获取到IP列表');
+                    showToast('未能获取到IP列表', 'error');
+                    return;
+                }
+
+                console.log(`[在线优选] 成功获取 ${ips.length} 个IP`);
+
+                // 测速（多线程并发）
+                console.log('[在线优选] 步骤4: 开始IP测速（多线程并发）...');
+                const results = await testIPsConcurrent(ips, progressFill, progressText, concurrency);
+                console.log(`[在线优选] 测速完成，有效IP数量: ${results.length}`);
+
+                // 分类结果
+                console.log('[在线优选] 步骤5: 分类结果...');
+                classifyResults(results);
+
+                // 显示结果
+                console.log('[在线优选] 步骤6: 显示结果...');
+                displayResults();
+
+                console.log('[在线优选] ========== 优选流程完成 ==========');
+                showToast('优选完成！', 'success');
+
+            } catch (error) {
+                console.error('[在线优选] 优选过程出错:', error);
+                showToast('优选过程出错: ' + error.message, 'error');
+            } finally {
+                btnStart.disabled = false;
+                btnStart.textContent = '开始优选';
+            }
+        }
+
+        // 加载locations数据
+        async function loadLocationsData() {
+            try {
+                const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '');
+                const response = await fetch(`https://speed.cloudflare.com/locations`);
+                locationsData = await response.json();
+                console.log(`[在线优选] 成功加载 ${locationsData.length} 个位置数据`);
+            } catch (error) {
+                console.error('[在线优选] 加载locations数据失败:', error);
+                locationsData = [];
+            }
+        }
+
+        // 获取IP列表
+        async function getIPList(ipLibrary, port) {
+            const urls = {
+                'cf-official': 'https://cf.090227.xyz/ips-v4',
+                'cm-list': 'https://github.cmliussss.net/raw.githubusercontent.com/cmliu/cmliu/main/CF-CIDR.txt',
+                'as13335': 'https://github.cmliussss.net/raw.githubusercontent.com/ipverse/asn-ip/master/as/13335/ipv4-aggregated.txt',
+                'as209242': 'https://github.cmliussss.net/raw.githubusercontent.com/ipverse/asn-ip/master/as/209242/ipv4-aggregated.txt',
+                'reverse-proxy': 'https://github.cmliussss.net/raw.githubusercontent.com/cmliu/ACL4SSR/main/baipiao.txt'
+            };
+
+            try {
+                console.log(`[在线优选] 正在从 ${urls[ipLibrary]} 获取IP列表...`);
+                const response = await fetch(urls[ipLibrary]);
+                const text = await response.text();
+                console.log(`[在线优选] 成功获取原始数据，长度: ${text.length} 字符`);
+
+                if (ipLibrary === 'reverse-proxy') {
+                    // 处理反向代理列表
+                    console.log('[在线优选] 处理反向代理列表...');
+                    return processReverseProxyList(text, port);
+                } else {
+                    // 处理CIDR列表
+                    console.log('[在线优选] 处理CIDR列表...');
+                    return processCIDRList(text, port);
+                }
+            } catch (error) {
+                console.error('[在线优选] 获取IP列表失败:', error);
+                throw new Error('获取IP列表失败: ' + error.message);
+            }
+        }
+
+        // 处理反向代理列表
+        function processReverseProxyList(text, targetPort) {
+            const lines = text.trim().split('\n');
+            const filteredIPs = [];
+
+            console.log(`[在线优选] 反向代理列表原始行数: ${lines.length}`);
+
+            for (const line of lines) {
+                const trimmed = line.trim();
+                if (!trimmed || trimmed.startsWith('#')) continue;
+
+                // 格式: IP:PORT#备注
+                const match = trimmed.match(/^([^:]+):(\d+)#(.+)$/);
+                if (match) {
+                    const [, ip, linePort, remark] = match;
+                    if (linePort === targetPort) {
+                        filteredIPs.push(`${ip}:${linePort}#${remark}`);
+                    }
+                }
+            }
+
+            console.log(`[在线优选] 匹配端口 ${targetPort} 的IP数量: ${filteredIPs.length}`);
+
+            // 如果超过512个，随机选择512个
+            if (filteredIPs.length > 512) {
+                console.log('[在线优选] IP数量超过512，随机选择512个');
+                return shuffleArray(filteredIPs).slice(0, 512);
+            }
+
+            return filteredIPs;
+        }
+
+        // 处理CIDR列表
+        function processCIDRList(text, port) {
+            const lines = text.trim().split('\n');
+            const cidrs = lines.filter(line => line.trim() && !line.startsWith('#'));
+
+            console.log(`[在线优选] CIDR列表数量: ${cidrs.length}`);
+
+            const ips = [];
+            const targetCount = 512;
+
+            while (ips.length < targetCount && cidrs.length > 0) {
+                for (const cidr of cidrs) {
+                    if (ips.length >= targetCount) break;
+
+                    const ip = generateRandomIPFromCIDR(cidr);
+                    const ipWithPort = `${ip}:${port}`;
+
+                    // 检查是否重复
+                    if (!ips.includes(ipWithPort)) {
+                        ips.push(ipWithPort);
+                    }
+                }
+            }
+
+            console.log(`[在线优选] 成功生成 ${ips.length} 个随机IP`);
+            return ips;
+        }
+
+        // 从CIDR生成随机IP
+        function generateRandomIPFromCIDR(cidr) {
+            const [network, bits] = cidr.split('/');
+            const maskBits = parseInt(bits);
+            const networkParts = network.split('.').map(Number);
+
+            // 计算网络地址
+            const networkInt = (networkParts[0] << 24) | (networkParts[1] << 16) |
+                (networkParts[2] << 8) | networkParts[3];
+
+            // 计算主机位数量
+            const hostBits = 32 - maskBits;
+            const hostCount = Math.pow(2, hostBits);
+
+            // 随机选择一个主机地址
+            const randomHost = Math.floor(Math.random() * hostCount);
+            const ipInt = networkInt + randomHost;
+
+            // 转换回IP地址
+            const ip1 = (ipInt >>> 24) & 255;
+            const ip2 = (ipInt >>> 16) & 255;
+            const ip3 = (ipInt >>> 8) & 255;
+            const ip4 = ipInt & 255;
+
+            return `${ip1}.${ip2}.${ip3}.${ip4}`;
+        }
+
+        // 测试IP列表（4线程并发版本）
+        async function testIPsConcurrent(ips, progressFill, progressText, concurrency = 8) {
+            const results = [];
+            const total = ips.length;
+            let completedCount = 0;
+            let successCount = 0;
+            let failCount = 0;
+
+            console.log(`[在线优选] 开始并发测试 ${total} 个IP（${concurrency}线程）...`);
+
+            // 更新进度的函数
+            const updateProgress = () => {
+                const progress = (completedCount / total * 100).toFixed(2);
+                // 计算红色和绿色部分的比例（相对于已完成的IP）
+                let failPercent = 0;
+                if (completedCount > 0) {
+                    failPercent = (failCount / completedCount * 100).toFixed(2);
+                }
+
+                // 设置进度条的渐变背景，红色表示失败，绿色表示成功
+                progressFill.style.background = `linear-gradient(90deg, #ef4444 0%, #ef4444 ${failPercent}%, #10b981 ${failPercent}%, #10b981 100%)`;
+                progressFill.style.width = progress + '%';
+                progressText.textContent = `${completedCount}/${total} (${progress}%) - 成功: ${successCount}, 失败: ${failCount}`;
+
+                // 每完成64个IP输出一次统计
+                if (completedCount % 64 === 0 || completedCount === total) {
+                    console.log(`[在线优选] 进度: ${completedCount}/${total}, 成功: ${successCount}, 失败: ${failCount}`);
+                }
+            };
+
+            // 测试单个IP的包装函数
+            const testIPWrapper = async (ipWithPort) => {
+                const result = await testSingleIP(ipWithPort);
+                completedCount++;
+
+                if (result) {
+                    results.push(result);
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+
+                updateProgress();
+                return result;
+            };
+
+            // 并发控制：将IP列表分成多个批次
+            const batches = [];
+            for (let i = 0; i < ips.length; i += concurrency) {
+                batches.push(ips.slice(i, i + concurrency));
+            }
+
+            // 逐批次并发执行
+            for (const batch of batches) {
+                await Promise.all(batch.map(ip => testIPWrapper(ip)));
+            }
+
+            console.log(`[在线优选] 测试完成！总计: ${total}, 成功: ${successCount}, 失败: ${failCount}`);
+            return results;
+        }
+
+        // 测试IP列表（旧版单线程，保留作为备用）
+        async function testIPs(ips, progressFill) {
+            const results = [];
+            const total = ips.length;
+            let successCount = 0;
+            let failCount = 0;
+
+            console.log(`[在线优选] 开始测试 ${total} 个IP...`);
+
+            for (let i = 0; i < total; i++) {
+                const ipWithPort = ips[i];
+                const result = await testSingleIP(ipWithPort);
+
+                if (result) {
+                    results.push(result);
+                    successCount++;
+                } else {
+                    failCount++;
+                }
+
+                // 每测试50个IP输出一次统计
+                if ((i + 1) % 50 === 0 || (i + 1) === total) {
+                    console.log(`[在线优选] 进度: ${i + 1}/${total}, 成功: ${successCount}, 失败: ${failCount}`);
+                }
+
+                // 更新进度
+                const progress = ((i + 1) / total * 100).toFixed(2);
+                progressFill.style.width = progress + '%';
+                progressFill.textContent = `${i + 1}/${total} (${progress}%)`;
+            }
+
+            console.log(`[在线优选] 测试完成！总计: ${total}, 成功: ${successCount}, 失败: ${failCount}`);
+            return results;
+        }
+
+        // 测试单个IP
+        async function testSingleIP(ipWithPort) {
+            try {
+                // 解析IP和端口
+                let ip, port, remark = '';
+                if (ipWithPort.includes('#')) {
+                    const [ipPort, remarkPart] = ipWithPort.split('#');
+                    [ip, port] = ipPort.split(':');
+                    remark = remarkPart;
+                } else {
+                    [ip, port] = ipWithPort.split(':');
+                }
+
+                // 转换IP为16进制
+                const hexIP = ipToHex(ip);
+                const testUrl = `https://${hexIP}.nip.lfree.org:${port}/cdn-cgi/trace?t=${Date.now()}`;
+
+                // 测试3次，取后2次平均值
+                const times = [];
+                let resultData = null;
+
+                for (let i = 0; i < 3; i++) {
+                    const start = performance.now();
+                    try {
+                        const response = await fetch(testUrl, {
+                            method: 'GET',
+                            signal: AbortSignal.timeout(5000) // 5秒超时
+                        });
+
+                        if (response.ok) {
+                            const end = performance.now();
+                            const time = end - start;
+
+                            // 第一次不计入（DNS问题）
+                            if (i > 0) {
+                                times.push(time);
+                            }
+
+                            // 只在第一次解析响应数据
+                            if (i === 0) {
+                                const text = await response.text();
+                                const lines = text.trim().split('\n');
+                                const data = {};
+                                lines.forEach(line => {
+                                    const [key, value] = line.split('=');
+                                    if (key && value) data[key] = value;
+                                });
+
+                                resultData = {
+                                    ip: ip,
+                                    port: port,
+                                    remark: remark,
+                                    responseIP: data.ip || ip,
+                                    colo: data.colo || '',
+                                    avgTime: 0 // 稍后计算
+                                };
+                            }
+                        } else {
+                            // 如果第一次就失败，直接返回null
+                            if (i === 0) {
+                                console.debug(`[在线优选] IP ${ip}:${port} 测试失败 (HTTP ${response.status})`);
+                                return null;
+                            }
+                        }
+                    } catch (error) {
+                        // 请求失败，如果是第一次就返回null
+                        if (i === 0) {
+                            console.debug(`[在线优选] IP ${ip}:${port} 测试失败 (${error.message})`);
+                            return null;
+                        }
+                    }
+                }
+
+                // 计算平均响应时间
+                if (resultData && times.length > 0) {
+                    const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
+                    resultData.avgTime = Math.round(avgTime);
+                    console.debug(`[在线优选] IP ${ip}:${port} 测试成功 - 平均响应: ${resultData.avgTime}ms, colo: ${resultData.colo}`);
+                    return resultData;
+                }
+
+                return null;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        // IP转16进制
+        function ipToHex(ip) {
+            return ip.split('.').map(num => {
+                const hex = parseInt(num).toString(16);
+                return hex.padStart(2, '0');
+            }).join('');
+        }
+
+        // 分类结果
+        function classifyResults(results) {
+            console.log('[在线优选] 开始分类结果...');
+            optimizeResults = {};
+
+            // 根据IP库类型判断是否为优选反代
+            // 只有使用"反向代理列表"IP库时，备注才是"优选反代"，其余一律为"官方优选"
+            const isReverseProxy = currentIPLibrary === 'reverse-proxy';
+            const type = isReverseProxy ? '优选反代' : '官方优选';
+            console.log(`[在线优选] IP库类型: ${currentIPLibrary}, 备注类型: ${type}`);
+
+            for (const result of results) {
+                if (!result.colo) continue;
+
+                // 通过colo查找国家编码
+                const location = locationsData.find(loc => loc.iata === result.colo);
+                const countryCode = location ? location.cca2 : result.colo;
+
+                if (!optimizeResults[countryCode]) {
+                    optimizeResults[countryCode] = [];
+                }
+
+                optimizeResults[countryCode].push({
+                    ip: result.ip,
+                    port: result.port,
+                    remark: result.remark || countryCode,
+                    type: type,
+                    time: result.avgTime
+                });
+            }
+
+            console.log(`[在线优选] 分类到 ${Object.keys(optimizeResults).length} 个国家/地区`);
+
+            // 对每个国家的结果按响应时间排序
+            for (const country in optimizeResults) {
+                optimizeResults[country].sort((a, b) => a.time - b.time);
+                console.log(`[在线优选] ${country}: ${optimizeResults[country].length} 个IP`);
+                // 不再限制为16个，保留所有结果
+            }
+        }
+
+        // 显示结果
+        function displayResults() {
+            console.log('[在线优选] 显示优选结果...');
+            const tabsContainer = document.getElementById('optimizeResultsTabs');
+            const contentContainer = document.getElementById('optimizeResultsContent');
+
+            tabsContainer.innerHTML = '';
+            contentContainer.innerHTML = '';
+
+            const countries = Object.keys(optimizeResults).sort();
+            console.log(`[在线优选] 可用国家/地区: ${countries.join(', ')}`);
+
+            if (countries.length === 0) {
+                console.warn('[在线优选] 警告: 未找到任何可用的优选IP');
+                contentContainer.innerHTML = '<div style="text-align: center; color: #6b7280;">未找到可用的优选IP</div>';
+                contentContainer.classList.remove('hidden-section');
+                return;
+            }
+
+            // 创建选项卡 - 显示实际的IP数量
+            countries.forEach((country, index) => {
+                const tab = document.createElement('div');
+                tab.className = 'optimize-tab';
+                if (index === 0) {
+                    tab.classList.add('active');
+                    currentSelectedCountry = country;
+                }
+                const actualCount = optimizeResults[country].length;
+                tab.textContent = `${country} (${actualCount})`;
+                tab.onclick = () => selectCountryTab(country);
+                tabsContainer.appendChild(tab);
+            });
+
+            // 显示第一个国家的结果
+            showCountryResults(currentSelectedCountry);
+
+            tabsContainer.classList.remove('hidden-section');
+            contentContainer.classList.remove('hidden-section');
+
+            // 启用保存按钮
+            document.getElementById('btnSaveOverride').disabled = false;
+            document.getElementById('btnSaveAppend').disabled = false;
+
+            console.log('[在线优选] 结果显示完成');
+        }
+
+        // 选择国家选项卡
+        function selectCountryTab(country) {
+            currentSelectedCountry = country;
+
+            // 更新选项卡样式
+            const tabs = document.querySelectorAll('.optimize-tab');
+            tabs.forEach(tab => {
+                if (tab.textContent === country) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            // 显示对应国家的结果
+            showCountryResults(country);
+        }
+
+        // 显示国家结果
+        function showCountryResults(country, showAll = false) {
+            const contentContainer = document.getElementById('optimizeResultsContent');
+            const results = optimizeResults[country] || [];
+
+            if (results.length === 0) {
+                contentContainer.innerHTML = '<div style="text-align: center; color: #6b7280;">暂无数据</div>';
+                return;
+            }
+
+            // 默认只显示前16个，可通过showAll参数显示全部
+            const displayCount = showAll ? results.length : Math.min(16, results.length);
+            const displayResults = results.slice(0, displayCount);
+            
+            const html = displayResults.map(r => {
+                // 根据延迟时间确定颜色
+                let color = '#10b981'; // 100ms以下绿色
+                if (r.time > 100 && r.time <= 200) {
+                    color = '#f59e0b'; // 101~200ms黄色
+                } else if (r.time > 200) {
+                    color = '#ef4444'; // 201ms以上红色
+                }
+
+                return `<div class="optimize-result-item" style="color: ${color}; font-weight: bold;">${r.ip}:${r.port}#${r.remark} ${r.type} ${r.time}ms</div>`;
+            }).join('');
+
+            let finalHtml = html;
+            
+            // 如果有更多结果且未展开，添加展开按钮
+            if (!showAll && results.length > 16) {
+                finalHtml += `<div style="margin-top: 15px; text-align: center;">
+                    <button type="button" class="btn btn-secondary" onclick="showCountryResults('${country}', true)" style="padding: 8px 16px; font-size: 12px;">
+                        📂 展开所有IP (${results.length} 个)
+                    </button>
+                </div>`;
+            }
+
+            contentContainer.innerHTML = finalHtml;
+        }
+
+        // 保存优选结果
+        async function saveOptimizeResults(mode) {
+            console.log(`[在线优选] 保存结果 (模式: ${mode})`);
+
+            if (!currentSelectedCountry || !optimizeResults[currentSelectedCountry]) {
+                console.warn('[在线优选] 未选择国家或无结果数据');
+                showToast('请先选择一个国家', 'error');
+                return;
+            }
+
+            const allResults = optimizeResults[currentSelectedCountry];
+            // 只保存前16个
+            const resultsToSave = allResults.slice(0, 16);
+            // 修改格式：包含国家、类型和时间信息
+            const newContent = resultsToSave.map(r => `${r.ip}:${r.port}#${r.remark}|${r.type}|${r.time}ms`).join('\n');
+            console.log(`[在线优选] ${currentSelectedCountry} 保存 ${resultsToSave.length} 个IP (总共 ${allResults.length} 个)`);
+
+            const textarea = document.getElementById('customIPs');
+
+            if (mode === 'override') {
+                textarea.value = newContent;
+                console.log('[在线优选] 覆盖保存完成');
+                showToast('已覆盖到自定义优选地址 (前16个)', 'success');
+            } else if (mode === 'append') {
+                const currentValue = textarea.value.trim();
+                textarea.value = currentValue ? currentValue + '\n' + newContent : newContent;
+                console.log('[在线优选] 追加保存完成');
+                showToast('已追加到自定义优选地址 (前16个)', 'success');
+            }
+
+            // 标记为已修改
+            markModified('sub');
+        }
+
+        // 工具函数：数组随机打乱
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
         }
 
         // 初始化
