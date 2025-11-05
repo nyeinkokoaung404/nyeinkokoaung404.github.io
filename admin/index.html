@@ -1460,6 +1460,205 @@
             box-shadow: 0 2px 10px rgba(6, 182, 212, 0.4);
         }
 
+        .btn-api-optimize {
+            background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-api-optimize:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-api-optimize:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.4);
+        }
+
+        /* API优选模态框样式 */
+        .api-optimize-modal {
+            overflow-y: auto;
+            width: 90vw;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .api-optimize-modal-title {
+            margin-bottom: 20px;
+        }
+
+        .api-form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .api-form-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .api-form-row label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .api-form-row input {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        .api-results-container {
+            margin: 20px 0;
+        }
+
+        .api-results-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        .api-results-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            height: 200px;
+            background-color: #f9fafb;
+            color: #1f2937;
+            resize: vertical;
+            overflow-y: auto;
+        }
+
+        .api-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-verify-api {
+            background: linear-gradient(135deg, #10b981 0, #059669 100%);
+            color: #fff;
+            flex: 1;
+        }
+
+        .btn-verify-api:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+        }
+
+        .btn-append-api {
+            background: linear-gradient(135deg, #f59e0b 0, #d97706 100%);
+            color: #fff;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-append-api:not([disabled]) {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .btn-append-api:hover:not([disabled]) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-append-results {
+            background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
+            color: #fff;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-append-results:not([disabled]) {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .btn-append-results:hover:not([disabled]) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-close-api {
+            background: linear-gradient(135deg, #e5e7eb 0, #d1d5db 100%);
+            color: #374151;
+        }
+
+        .btn-close-api:hover {
+            background: linear-gradient(135deg, #d1d5db 0, #b3b8be 100%);
+        }
+
+        html.dark-mode .api-optimize-modal {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .api-form-row label {
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .api-form-row input {
+            background: var(--input-bg);
+            color: var(--text-primary);
+            border-color: var(--input-border);
+        }
+
+        html.dark-mode .api-results-label {
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .api-results-textarea {
+            background: var(--input-bg);
+            color: var(--text-primary);
+            border-color: var(--input-border);
+        }
+
+        html.dark-mode .btn-api-optimize {
+            background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        html.dark-mode .btn-verify-api {
+            background: linear-gradient(135deg, #10b981 0, #059669 100%);
+            color: #fff;
+        }
+
+        html.dark-mode .btn-append-api {
+            background: linear-gradient(135deg, #f59e0b 0, #d97706 100%);
+            color: #fff;
+        }
+
+        html.dark-mode .btn-append-results {
+            background: linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%);
+            color: #fff;
+        }
+
+        html.dark-mode .btn-close-api {
+            background: var(--input-bg);
+            color: var(--text-primary);
+        }
+
+        html.dark-mode .btn-close-api:hover {
+            background: var(--border-color);
+        }
+
         /* 隐藏元素 */
         .hidden-section {
             display: none;
@@ -2300,6 +2499,8 @@
                     <div class="module-footer">
                         <button type="button" class="btn btn-online-optimize hidden-section" id="onlineOptimizeBtn"
                             onclick="openOnlineOptimizeModal()">在线优选</button>
+                        <button type="button" class="btn btn-api-optimize hidden-section" id="apiOptimizeBtn"
+                            onclick="openAPIOptimizeModal()">优选API</button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('sub')" disabled
                                 id="cancelSubBtn">取消</button>
@@ -2810,6 +3011,49 @@
         </div>
     </div>
 
+    <!-- API优选模态框 -->
+    <div class="modal-overlay" id="apiOptimizeModal" onclick="closeAPIOptimizeModal(event)">
+        <div class="modal api-optimize-modal" onclick="event.stopPropagation()">
+            <button type="button" class="modal-close" onclick="closeAPIOptimizeModal()">×</button>
+            <h2 class="api-optimize-modal-title">🔌 优选API</h2>
+
+            <!-- API URL 输入 -->
+            <div class="api-form-group">
+                <div class="api-form-row">
+                    <label>API URL:</label>
+                    <input type="text" id="apiOptimizeURL" placeholder="输入API接口URL" title="API接口URL"
+                        oninput="autoConvertGitHubURL()">
+                </div>
+            </div>
+
+            <!-- 默认端口输入 -->
+            <div class="api-form-group">
+                <div class="api-form-row">
+                    <label>默认端口:</label>
+                    <input type="number" id="apiOptimizePort" value="443" min="1" max="65535" 
+                        placeholder="1-65535" title="默认端口(1-65535)">
+                </div>
+            </div>
+
+            <!-- 结果显示区域 -->
+            <div class="api-results-container">
+                <label class="api-results-label">接口结果:</label>
+                <textarea id="apiOptimizeResults" class="api-results-textarea" readonly placeholder="接口返回结果将显示在这里，每行一个地址"></textarea>
+            </div>
+
+            <!-- 按钮组 -->
+            <div class="api-buttons">
+                <button type="button" class="btn btn-verify-api" id="btnVerifyAPI"
+                    onclick="verifyAPIOptimize()">可用性验证</button>
+                <button type="button" class="btn btn-append-api" id="btnAppendAPI"
+                    onclick="appendAPIToCustom()" disabled>追加API</button>
+                <button type="button" class="btn btn-append-results" id="btnAppendResults"
+                    onclick="appendResultsToCustom()" disabled>追加结果</button>
+                <button type="button" class="btn btn-close-api" onclick="closeAPIOptimizeModal()">关闭</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let currentConfig = {};
         let originalConfig = {};
@@ -3019,13 +3263,21 @@
             document.getElementById('customIPSection').style.display = mode === 'custom' ? 'block' : 'none';
             document.getElementById('generatorSection').style.display = mode === 'generator' ? 'grid' : 'none';
 
-            // 显示或隐藏在线优选按钮（仅在自定义优选模式下显示）
+            // 显示或隐藏在线优选和优选API按钮（仅在自定义优选模式下显示）
             const onlineOptimizeBtn = document.getElementById('onlineOptimizeBtn');
+            const apiOptimizeBtn = document.getElementById('apiOptimizeBtn');
             if (onlineOptimizeBtn) {
                 if (mode === 'custom') {
                     onlineOptimizeBtn.classList.remove('hidden-section');
                 } else {
                     onlineOptimizeBtn.classList.add('hidden-section');
+                }
+            }
+            if (apiOptimizeBtn) {
+                if (mode === 'custom') {
+                    apiOptimizeBtn.classList.remove('hidden-section');
+                } else {
+                    apiOptimizeBtn.classList.add('hidden-section');
                 }
             }
 
@@ -4500,6 +4752,215 @@
         function closeOnlineOptimizeModal(event) {
             if (event && event.target !== event.currentTarget) return;
             document.getElementById('onlineOptimizeModal').classList.remove('show');
+        }
+
+        // ==================== API优选相关函数 ====================
+
+        // 打开API优选模态框
+        function openAPIOptimizeModal() {
+            document.getElementById('apiOptimizeModal').classList.add('show');
+            // 重置表单
+            document.getElementById('apiOptimizeURL').value = '';
+            document.getElementById('apiOptimizePort').value = '443';
+            document.getElementById('apiOptimizeResults').value = '';
+            document.getElementById('btnAppendAPI').disabled = true;
+            document.getElementById('btnAppendResults').disabled = true;
+        }
+
+        // 关闭API优选模态框
+        function closeAPIOptimizeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('apiOptimizeModal').classList.remove('show');
+        }
+
+        // 验证和规范化端口号
+        function validateAndNormalizePort(port) {
+            let num = parseInt(port, 10);
+            if (isNaN(num)) return '443';
+            if (num < 1) return '1';
+            if (num > 65535) return '65535';
+            return num.toString();
+        }
+
+        // 验证API URL格式
+        function isValidURL(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // 将GitHub链接转换为raw格式
+        function convertGitHubURLToRaw(url) {
+            if (!url.includes('github.com')) {
+                return url;
+            }
+
+            // 将 https://github.com/user/repo/blob/branch/path 转换为 https://raw.githubusercontent.com/user/repo/refs/heads/branch/path
+            if (url.includes('/blob/')) {
+                // 提取分支和文件路径
+                const match = url.match(/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.*)/);
+                if (match) {
+                    const [, user, repo, branch, filePath] = match;
+                    return `https://raw.githubusercontent.com/${user}/${repo}/refs/heads/${branch}/${filePath}`;
+                }
+            }
+
+            // 将 https://github.com/user/repo/tree/branch/path 转换为 https://raw.githubusercontent.com/user/repo/refs/heads/branch/path
+            if (url.includes('/tree/')) {
+                const match = url.match(/github\.com\/([^/]+)\/([^/]+)\/tree\/([^/]+)\/(.*)/);
+                if (match) {
+                    const [, user, repo, branch, filePath] = match;
+                    return `https://raw.githubusercontent.com/${user}/${repo}/refs/heads/${branch}/${filePath}`;
+                }
+            }
+
+            return url;
+        }
+
+        // 实时自动转换GitHub链接
+        function autoConvertGitHubURL() {
+            const urlInput = document.getElementById('apiOptimizeURL');
+            const url = urlInput.value.trim();
+
+            if (url.includes('github.com/')) {
+                const convertedURL = convertGitHubURLToRaw(url);
+                if (convertedURL !== url) {
+                    urlInput.value = convertedURL;
+                }
+            }
+        }
+
+        // 可用性验证
+        async function verifyAPIOptimize() {
+            let urlInput = document.getElementById('apiOptimizeURL').value.trim();
+            const portInput = document.getElementById('apiOptimizePort').value.trim();
+
+            if (!urlInput) {
+                alert('请输入API URL');
+                return;
+            }
+
+            // 自动转换GitHub链接为raw格式
+            const convertedURL = convertGitHubURLToRaw(urlInput);
+            if (convertedURL !== urlInput) {
+                document.getElementById('apiOptimizeURL').value = convertedURL;
+                urlInput = convertedURL;
+                showToast('✅ GitHub链接已自动转换为raw格式', 'info');
+            }
+
+            if (!isValidURL(urlInput)) {
+                alert('请输入有效的URL格式');
+                return;
+            }
+
+            // 规范化端口
+            const normalizedPort = validateAndNormalizePort(portInput);
+            document.getElementById('apiOptimizePort').value = normalizedPort;
+
+            // 构建完整URL
+            const separator = urlInput.includes('?') ? '&' : '?';
+            const completeURL = `${urlInput}${separator}port=${normalizedPort}`;
+
+            // URL编码
+            const encodedURL = encodeURIComponent(completeURL);
+
+            // 构建请求URL
+            const requestURL = `/admin/getADDAPI?url=${encodedURL}`;
+
+            try {
+                const btn = document.getElementById('btnVerifyAPI');
+                btn.disabled = true;
+                btn.textContent = '验证中...';
+
+                const response = await fetch(requestURL);
+                const data = await response.json();
+
+                if (data.success && data.data && Array.isArray(data.data)) {
+                    // 接口可用
+                    const results = data.data.join('\n');
+                    document.getElementById('apiOptimizeResults').value = results;
+                    document.getElementById('btnAppendAPI').disabled = false;
+                    document.getElementById('btnAppendResults').disabled = false;
+                    showToast('✅ API接口验证成功！', 'success');
+                } else {
+                    // 接口不可用
+                    document.getElementById('apiOptimizeResults').value = '❌ 接口不可用，请检查URL和端口是否正确';
+                    document.getElementById('btnAppendAPI').disabled = true;
+                    document.getElementById('btnAppendResults').disabled = true;
+                    showToast('❌ API接口验证失败，请检查接口', 'error');
+                }
+            } catch (error) {
+                console.error('API验证错误:', error);
+                document.getElementById('apiOptimizeResults').value = `❌ 验证出错: ${error.message}`;
+                document.getElementById('btnAppendAPI').disabled = true;
+                document.getElementById('btnAppendResults').disabled = true;
+                showToast('❌ 验证出错，请稍后重试', 'error');
+            } finally {
+                const btn = document.getElementById('btnVerifyAPI');
+                btn.disabled = false;
+                btn.textContent = '可用性验证';
+            }
+        }
+
+        // 追加API到自定义优选地址
+        function appendAPIToCustom() {
+            const urlInput = document.getElementById('apiOptimizeURL').value.trim();
+            const portInput = document.getElementById('apiOptimizePort').value.trim();
+
+            if (!urlInput) {
+                alert('请输入API URL');
+                return;
+            }
+
+            // 构建完整URL
+            const separator = urlInput.includes('?') ? '&' : '?';
+            const completeURL = `${urlInput}${separator}port=${portInput}`;
+
+            const customIPsTextarea = document.getElementById('customIPs');
+            const currentValue = customIPsTextarea.value.trim();
+            
+            // 追加到文本框
+            if (currentValue) {
+                customIPsTextarea.value = currentValue + '\n' + completeURL;
+            } else {
+                customIPsTextarea.value = completeURL;
+            }
+
+            // 标记为已修改
+            markModified('sub');
+
+            showToast('✅ API URL已追加到自定义优选地址', 'success');
+            closeAPIOptimizeModal();
+        }
+
+        // 追加结果到自定义优选地址
+        function appendResultsToCustom() {
+            const resultsTextarea = document.getElementById('apiOptimizeResults');
+            const results = resultsTextarea.value.trim();
+
+            if (!results || results.startsWith('❌')) {
+                alert('请先进行可用性验证且验证通过');
+                return;
+            }
+
+            const customIPsTextarea = document.getElementById('customIPs');
+            const currentValue = customIPsTextarea.value.trim();
+            
+            // 追加到文本框
+            if (currentValue) {
+                customIPsTextarea.value = currentValue + '\n' + results;
+            } else {
+                customIPsTextarea.value = results;
+            }
+
+            // 标记为已修改
+            markModified('sub');
+
+            showToast('✅ API结果已追加到自定义优选地址', 'success');
+            closeAPIOptimizeModal();
         }
 
         // 检测IP和网络环境
