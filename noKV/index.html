@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
-    <title>配置错误</title>
+    <title>Configuration Error</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
             overflow: hidden
         }
 
-        /* 通用动画 */
+        /* General Animations */
         @keyframes blurOverlayAppear {
             0% {
                 opacity: 0;
@@ -69,7 +69,7 @@
             }
         }
 
-        /* 背景和遮罩层 */
+        /* Background and Overlay */
         #background-iframe {
             position: fixed;
             top: 0;
@@ -95,7 +95,7 @@
             opacity: 0
         }
 
-        /* 通用容器包装器 */
+        /* General Container Wrapper */
         .page-wrapper {
             position: fixed;
             top: 0;
@@ -110,9 +110,9 @@
             overflow-y: auto
         }
 
-        /* 通用卡片容器 */
+        /* General Card Container */
         .card-container {
-            background: #ef4444;
+            background: #ef4444; /* Red background for error */
             -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
             padding: 50px 40px;
@@ -121,7 +121,9 @@
             width: 100%;
             animation: containerAppear 1s ease-out .8s backwards;
             position: relative;
-            overflow: hidden
+            overflow: hidden;
+            max-width: 440px;
+            text-align: center
         }
 
         .card-container::before {
@@ -136,7 +138,7 @@
             animation: gradientShift 3s ease infinite
         }
 
-        /* 页面标题和图标 */
+        /* Page Header and Icon */
         .page-header {
             margin-bottom: 50px;
             text-align: center
@@ -170,8 +172,7 @@
             letter-spacing: -0.5px
         }
 
-        /* 表单样式 */
-        /* 按钮样式 */
+        /* Buttons (Not used in this context, but styles preserved) */
         .btn {
             padding: 16px 20px;
             border: 0;
@@ -225,7 +226,7 @@
             pointer-events: none
         }
 
-        /* 页脚提示 */
+        /* Footer Hint */
         .footer-hint {
             margin-top: 50px;
             font-size: 13px;
@@ -245,8 +246,39 @@
             color: #fff
         }
 
-        /* 模态框 */
-        /* 响应式设计 - 平板 */
+        /* Error message subtext */
+        @keyframes fadeInError {
+            from {
+                opacity: 0;
+                transform: translateY(-10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .error-sub {
+            display: block;
+            margin-top: 24px;
+            padding: 20px 24px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInError 0.3s ease-out;
+        }
+
+        .error-sub strong {
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        /* Responsive Design - Tablet */
         @media(max-width:768px) {
             .page-wrapper {
                 padding: 20px 16px;
@@ -275,39 +307,13 @@
                 margin-top: 28px
             }
 
-            .form-group {
-                margin-bottom: 20px
-            }
-
-            .form-group input {
-                padding: 14px;
-                font-size: 16px;
-                border-radius: 10px
-            }
-
-            .form-group input.with-icon {
-                padding-left: 44px
-            }
-
-            .input-icon {
-                left: 14px;
-                width: 18px;
-                height: 18px
-            }
-
-            .btn {
-                padding: 15px 20px;
-                font-size: 15px;
-                border-radius: 10px
-            }
-
             .footer-hint {
                 margin-top: 24px;
                 font-size: 12px
             }
         }
 
-        /* 响应式设计 - 手机 */
+        /* Responsive Design - Mobile */
         @media(max-width:480px) {
             .page-wrapper {
                 padding: 12px;
@@ -338,7 +344,7 @@
             }
         }
 
-        /* 响应式设计 - 横屏 */
+        /* Responsive Design - Landscape */
         @media(max-height:600px) and (orientation:landscape) {
             .page-wrapper {
                 padding: 20px;
@@ -372,73 +378,33 @@
                 margin-top: 20px
             }
 
-            .form-group {
-                margin-bottom: 16px
-            }
-
             .footer-hint {
                 margin-top: 16px
             }
-        }
-
-        .card-container {
-            max-width: 440px;
-            text-align: center
-        }
-
-        /* 错误消息样式 */
-        @keyframes fadeInError {
-            from {
-                opacity: 0;
-                transform: translateY(-10px)
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0)
-            }
-        }
-
-        /* 错误消息副文本 */
-        .error-sub {
-            display: block;
-            margin-top: 24px;
-            padding: 20px 24px;
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.2);
-            color: #fff;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 1.5;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            animation: fadeInError 0.3s ease-out;
-        }
-
-        .error-sub strong {
-            color: #fff;
-            font-weight: 700;
         }
     </style>
 </head>
 
 <body>
-    <!-- 毛玻璃效果遮盖层 -->
+    <!-- Frosted Glass Overlay -->
     <div id="blur-overlay"></div>
 
-    <!-- 登录框容器 -->
+    <!-- Error Container -->
     <div class="page-wrapper">
         <div class="card-container">
             <div class="page-header">
                 <div class="page-icon">
+                    <!-- Warning Triangle Icon -->
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
                     </svg>
                 </div>
-                <h1 class="page-title">未绑定 KV命名空间</h1>
+                <h1 class="page-title">KV Namespace Not Bound</h1>
             </div>
-            <span class="error-sub">请绑定 变量名称 为 <strong>KV</strong> 的 KV命名空间</span>
+            <span class="error-sub">Please bind the KV Namespace using the variable name <strong>KV</strong>.</span>
             <div class="footer-hint">
-                由 <a href="https://github.com/cmliu/edgetunnel" target="_blank" rel="noopener">edgetunnel</a> 强力驱动
+                Powered by <a href="https://t.me/premium_channel_404" target="_blank"
+                    rel="noopener">CHANNEL 404 [🇲🇲]</a>
             </div>
         </div>
     </div>
