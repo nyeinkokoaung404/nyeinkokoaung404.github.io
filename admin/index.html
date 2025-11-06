@@ -3787,7 +3787,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             </div>
             <div id="telegramStatus" class="subapi-status"></div>
             <div class="subapi-buttons">
-                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">Availability verification</button>
+                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">Availability Check</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="telegramConfirmBtn"
                     onclick="confirmTelegramConfig()" disabled>Save</button>
                 <button type="button" class="btn btn-secondary btn-cancel-api"
@@ -3800,12 +3800,12 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="cloudflareConfigModal" onclick="closeCloudflareConfigModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeCloudflareConfigModal()">×</button>
-            <h2 class="subapi-modal-title">☁️ Workers/Pages 可用请求数统计</h2>
+            <h2 class="subapi-modal-title">☁️ Workers/Pages Available Request Count Statistics</h2>
 
             <!-- 请求方案选择 -->
             <div class="form-group subapi-form-group">
-                <label>请求方案</label>
-                <select id="cloudflareAuthMethod" title="请求方案" onchange="updateCloudflareAuthMethod()">
+                <label>Request Scheme</label>
+                <select id="cloudflareAuthMethod" title="Request Scheme" onchange="updateCloudflareAuthMethod()">
                     <option value="accountid">Account ID + API Token</option>
                     <option value="email">Email + Global API Key</option>
                 </select>
@@ -3815,11 +3815,11 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <div id="cloudflareEmailSection">
                 <div class="form-group subapi-form-group">
                     <label>Email</label>
-                    <input type="text" id="cloudflareEmail" placeholder="输入Cloudflare账户邮箱">
+                    <input type="text" id="cloudflareEmail" placeholder="Enter Cloudflare account email">
                 </div>
                 <div class="form-group subapi-form-group">
                     <label>Global API Key</label>
-                    <input type="password" id="cloudflareGlobalAPIKey" placeholder="输入Global API Key">
+                    <input type="password" id="cloudflareGlobalAPIKey" placeholder="Enter Global API Key">
                 </div>
             </div>
 
@@ -3827,12 +3827,12 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <div id="cloudflareAccountIDSection" class="hidden-section">
                 <div class="form-group subapi-form-group">
                     <label>Account ID</label>
-                    <input type="text" id="cloudflareAccountID" placeholder="输入Account ID">
+                    <input type="text" id="cloudflareAccountID" placeholder="Enter Account ID">
                 </div>
                 <div class="form-group subapi-form-group">
                     <label>API Token</label>
-                    <input type="password" id="cloudflareAPIToken" placeholder="输入API Token">
-                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 API令牌权限 使用 "阅读分析数据和日志" 模板即可</small>
+                    <input type="password" id="cloudflareAPIToken" placeholder="Enter API Token">
+                    <small style="font-size: 12px; color: #9ca3af; margin-top: 6px; display: block;">💡 API token permissions: Use "Read Analytics and Logs" template</small>
                 </div>
             </div>
 
@@ -3842,11 +3842,11 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 按钮组 -->
             <div class="subapi-buttons">
                 <button type="button" class="btn btn-primary btn-test-api"
-                    onclick="testCloudflareConfig()">可用性验证</button>
+                    onclick="testCloudflareConfig()">Availability Check</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="cloudflareConfirmBtn"
-                    onclick="confirmCloudflareConfig()" disabled>保存</button>
+                    onclick="confirmCloudflareConfig()" disabled>Save</button>
                 <button type="button" class="btn btn-secondary btn-cancel-api"
-                    onclick="closeCloudflareConfigModal()">取消</button>
+                    onclick="closeCloudflareConfigModal()">Cancel</button>
             </div>
         </div>
     </div>
@@ -3855,30 +3855,30 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="onlineOptimizeModal" onclick="closeOnlineOptimizeModal(event)">
         <div class="modal optimize-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeOnlineOptimizeModal()">×</button>
-            <h2 class="optimize-modal-title">🚀 在线优选</h2>
+            <h2 class="optimize-modal-title">🚀 Online Optimization</h2>
 
             <!-- IP检测信息 -->
             <div id="ipDetectionBox" class="ip-detection-box">
                 <div class="ip-detection-info">
-                    正在检测您的网络环境...
+                    Detecting your network environment...
                 </div>
             </div>
 
-            <!-- 参数选择 -->
+            <!-- Parameter selection -->
             <div class="optimize-params-row">
                 <div class="form-group">
-                    <label for="optimizeIPLibrary">IP库：</label>
+                    <label for="optimizeIPLibrary">IP Library:</label>
                     <select id="optimizeIPLibrary">
-                        <option value="cf-official">CF官方列表</option>
-                        <option value="cm-list">CM整理列表</option>
-                        <option value="as13335">AS13335列表</option>
-                        <option value="as209242">AS209242列表</option>
-                        <option value="reverse-proxy">反向代理列表</option>
+                        <option value="cf-official">CF Official List</option>
+                        <option value="cm-list">CM Organized List</option>
+                        <option value="as13335">AS13335 List</option>
+                        <option value="as209242">AS209242 List</option>
+                        <option value="reverse-proxy">Reverse Proxy List</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="optimizePort">端口：</label>
+                    <label for="optimizePort">Port：</label>
                     <select id="optimizePort">
                         <option value="443">443</option>
                         <option value="2053">2053</option>
@@ -3890,7 +3890,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 </div>
 
                 <div class="form-group">
-                    <label for="optimizeConcurrency">测试线程数：</label>
+                    <label for="optimizeConcurrency">Test Thread Count：</label>
                     <input type="number" id="optimizeConcurrency" min="1" max="32" value="8"
                         class="optimize-concurrency-input" placeholder="1-32" oninput="validateConcurrency(this)"
                         onchange="validateConcurrency(this)">
@@ -3900,7 +3900,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 进度条 -->
             <div class="optimize-progress-bar hidden-section" id="optimizeProgressBar">
                 <div class="optimize-progress-fill" id="optimizeProgressFill"></div>
-                <div class="optimize-progress-text" id="optimizeProgressText">0/512 (0.00%) - 成功: 0, 失败: 0</div>
+                <div class="optimize-progress-text" id="optimizeProgressText">0/512 (0.00%) - Success: 0, Failed: 0</div>
             </div>
 
             <!-- 结果选项卡 -->
@@ -3911,14 +3911,14 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             <!-- 按钮组 -->
             <div class="optimize-buttons">
-                <span class="save-tip">💡 保存提示：仅保存延迟最低的前16个优选IP</span>
+                <span class="save-tip">💡 Save Tip: Only save the top 16 optimized IPs with lowest latency</span>
                 <button type="button" class="btn btn-start-optimize" id="btnStartOptimize"
-                    onclick="startOptimize()">开始优选</button>
+                    onclick="startOptimize()">Start Optimization</button>
                 <button type="button" class="btn btn-save-override" id="btnSaveOverride"
-                    onclick="saveOptimizeResults('override')" disabled>覆盖保存</button>
+                    onclick="saveOptimizeResults('override')" disabled>Override Save</button>
                 <button type="button" class="btn btn-save-append" id="btnSaveAppend"
-                    onclick="saveOptimizeResults('append')" disabled>追加保存</button>
-                <button type="button" class="btn btn-secondary" onclick="closeOnlineOptimizeModal()">关闭</button>
+                    onclick="saveOptimizeResults('append')" disabled>Append Save</button>
+                <button type="button" class="btn btn-secondary" onclick="closeOnlineOptimizeModal()">Close</button>
             </div>
         </div>
     </div>
@@ -3927,13 +3927,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="apiOptimizeModal" onclick="closeAPIOptimizeModal(event)">
         <div class="modal api-optimize-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeAPIOptimizeModal()">×</button>
-            <h2 class="api-optimize-modal-title">🔌 优选API</h2>
+            <h2 class="api-optimize-modal-title">🔌 Optimization API</h2>
 
             <!-- API URL 输入 -->
             <div class="api-form-group">
                 <div class="api-form-row">
                     <label>API URL:</label>
-                    <input type="text" id="apiOptimizeURL" placeholder="输入API接口URL" title="API接口URL"
+                    <input type="text" id="apiOptimizeURL" placeholder="Enter API interface URL" title="API Interface URL"
                         oninput="autoConvertGitHubURL(); autoDetectPortFromURL()">
                 </div>
             </div>
@@ -3943,7 +3943,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 <div class="api-form-row">
                     <label>默认端口:</label>
                     <input type="number" id="apiOptimizePort" value="443" min="1" max="65535" placeholder="1-65535"
-                        title="默认端口(1-65535)">
+                        title="Default Port (1-65535)">
                 </div>
             </div>
 
@@ -3951,18 +3951,18 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <div class="api-results-container">
                 <label class="api-results-label">接口结果:</label>
                 <textarea id="apiOptimizeResults" class="api-results-textarea" readonly
-                    placeholder="接口返回结果将显示在这里，每行一个地址"></textarea>
+                    placeholder="Interface return results will be displayed here, one address per line"></textarea>
             </div>
 
             <!-- 按钮组 -->
             <div class="api-buttons">
                 <button type="button" class="btn btn-verify-api" id="btnVerifyAPI"
-                    onclick="verifyAPIOptimize()">可用性验证</button>
+                    onclick="verifyAPIOptimize()">Availability Check</button>
                 <button type="button" class="btn btn-append-api" id="btnAppendAPI" onclick="appendAPIToCustom()"
-                    disabled>追加API</button>
+                    disabled>Append API</button>
                 <button type="button" class="btn btn-append-results" id="btnAppendResults"
-                    onclick="appendResultsToCustom()" disabled>追加结果</button>
-                <button type="button" class="btn btn-close-api" onclick="closeAPIOptimizeModal()">关闭</button>
+                    onclick="appendResultsToCustom()" disabled>Append Results</button>
+                <button type="button" class="btn btn-close-api" onclick="closeAPIOptimizeModal()">Close</button>
             </div>
         </div>
     </div>
@@ -3975,21 +3975,21 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 简易模式 -->
             <div id="proxyIPHelpSimple" style="display: none;">
                 <div class="api-docs">
-                    <h2 class="section-title">🤔 为什么需要反代模式？PROXYIP又是什么？</h2>
+                    <h2 class="section-title">🤔 Why do we need reverse proxy mode? What is PROXYIP?</h2>
 
                     <div class="simple-explanation">
-                        <strong>用最简单的话解释：</strong><br><br>
+                        <strong>Explained in the simplest terms:</strong><br><br>
                         
-                        <strong>🚀 问题是这样的：</strong><br>
-                        我们的 channel404 服务部署在 Cloudflare Workers 上。但是 Cloudflare 有个限制——他们的 Workers 无法直接访问 Cloudflare 自己的服务。<br><b>这就像名叫 Cloudflare 的小白永远无法从自己的眼睛里看到自己。</b><br><br>
+                        <strong>🚀 The problem is this:</strong><br>
+                        Our channel404 service is deployed on Cloudflare Workers. But Cloudflare has a limitation - their Workers cannot directly access Cloudflare's own services.<br><b>It's like a person named Cloudflare can never see themselves from their own eyes.</b><br><br>
                         
-                        <strong>💡 解决方案：</strong><br>
-                        为了解决这个问题，我们需要借助外部服务器（ProxyIP、SOCKS5 或 HTTP）作为「跳板」，通过这些第三方服务器来代理访问 Cloudflare 的服务。<br><b>相当于找了一面（ProxyIP/SOCKS5/HTTP）镜子，这样 Cloudflare 就能通过镜子看到了自己。</b><br><br>
+                        <strong>💡 The solution:</strong><br>
+                        To solve this problem, we need to use external servers (ProxyIP, SOCKS5, or HTTP) as "jump points" to proxy access to Cloudflare services through these third-party servers.<br><b>It's like finding a mirror (ProxyIP/SOCKS5/HTTP) so Cloudflare can see itself through the mirror.</b><br><br>
                         
-                        <strong>📍 实际效果：</strong>
+                        <strong>📍 Actual effect：</strong>
                         <ul style="margin: 12px 0 0 20px; padding-left: 0;">
-                            <li style="margin-bottom: 8px;">👤 访问<strong>非 Cloudflare CDN 的网站</strong>时（如<b>油管、谷歌</b>等），你的 IP 由「优选 IP」决定</li>
-                            <li>🌐 访问<strong>由 Cloudflare CDN 托管的网站</strong>时（如<b>推特、ChatGPT</b>等），你的 IP 由「反代模式（PROXYIP/SOCKS5/HTTP）」决定</li>
+                            <li style="margin-bottom: 8px;">👤 When accessing <strong>non-Cloudflare CDN websites</strong> (like <b>YouTube, Google</b>, etc.), your IP is determined by "Optimized IP"</li>
+                            <li>🌐 When accessing <strong>websites hosted by Cloudflare CDN</strong> (like <b>Twitter, ChatGPT</b>, etc.), your IP is determined by "Reverse Proxy Mode (PROXYIP/SOCKS5/HTTP)"</li>
                         </ul>
                     </div>
                 </div>
@@ -3998,13 +3998,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 详细模式 -->
             <div id="proxyIPHelpDetail" style="display: block;">
                 <div class="api-docs">
-                    <h2 class="section-title">🤔 为什么需要反代模式？PROXYIP又是什么？</h2>
-                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">❓ 为什么需要反代模式？</h3>
+                    <h2 class="section-title">🤔 Why do we need reverse proxy mode? What is PROXYIP?</h2>
+                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">❓ Why do we need reverse proxy mode?</h3>
                     <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                        根据 Cloudflare Workers 的 <a
+                        According to Cloudflare Workers <a
                             href="https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/" target="_blank"
                             rel="noopener" style="color: var(--primary-color); text-decoration: none;">TCP Sockets
-                            官方文档</a> 说明，存在以下技术限制：
+                            Official documentation</a> Please note that the following technical limitations exist:
                     </p>
                     <div class="code-block">
                         ⚠️ Outbound TCP sockets to <a href="https://www.cloudflare.com/ips/" target="_blank"
@@ -4013,19 +4013,19 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     </div>
 
                     <p style="margin: 16px 0; line-height: 1.8; color: var(--text-secondary);">
-                        这意味着 Cloudflare Workers 无法直接连接到 Cloudflare 自有的 IP 地址段。为了解决这个限制，需要借助第三方云服务商的服务器作为「跳板」：
+                        This means that Cloudflare Workers cannot directly connect to Cloudflare's own IP address range. To overcome this limitation, a third-party cloud service provider's server needs to be used as a "stepping stone":
                     </p>
 
                     <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                        而我们的 <b>channel404</b> 是部署在 Cloudflare Workers 上的代理服务。根据 Cloudflare Workers 的限制政策，Workers 节点无法直接连接到
-                        Cloudflare 自有的 IP 地址段。这意味着：
+                        Our <b>channel404</b> is a proxy service deployed on Cloudflare Workers. According to Cloudflare Workers' restriction policy, Worker nodes cannot connect directly.
+                        Cloudflare's own range of IP addresses. This means:
                     </p>
                     <ul style="margin: 12px 0 16px; padding-left: 20px; line-height: 1.8;">
-                        <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ 可以正常访问非 Cloudflare CDN 的站点</li>
-                        <li style="color: var(--text-secondary);">❌ 无法直接访问由 Cloudflare CDN 托管的网站</li>
+                        <li style="margin-bottom: 8px; color: var(--text-secondary);">✅ Can normally access non-Cloudflare CDN sites</li>
+                        <li style="color: var(--text-secondary);">❌ Cannot directly access websites hosted by Cloudflare CDN</li>
                     </ul>
                     <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                        因此需要反代模式来解决这个问题。反代模式通过第三方服务器作为「中介」，帮助 Workers 绕过这一限制。
+                        Therefore, reverse proxy mode is needed to solve this problem. Reverse proxy mode uses third-party servers as "intermediaries" to help Workers bypass this restriction.
                     </p>
 
                     <div
@@ -4035,27 +4035,27 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                             <div
                                 style="background: #e3f2fd; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
                                 <div style="font-weight: 600; color: #1976d2;">Cloudflare Workers</div>
-                                <div style="font-size: 0.9rem; color: var(--text-secondary);">发起请求</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Initiate a request</div>
                             </div>
                             <div style="color: var(--primary-color); font-size: 1.5rem;">→</div>
                             <div
                                 style="background: #f3e5f5; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
-                                <div style="font-weight: 600; color: #7b1fa2;">PROXYIP/SOCKS5/HTTP 服务器</div>
-                                <div style="font-size: 0.9rem; color: var(--text-secondary);">第三方代理</div>
+                                <div style="font-weight: 600; color: #7b1fa2;">PROXYIP/SOCKS5/HTTP Server</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Third-party Proxy</div>
                             </div>
                             <div style="color: var(--primary-color); font-size: 1.5rem;">→</div>
                             <div
                                 style="background: #e8f5e8; padding: 12px; border-radius: 8px; text-align: center; flex: 1; min-width: 120px;">
-                                <div style="font-weight: 600; color: #388e3c;">Cloudflare 服务</div>
-                                <div style="font-size: 0.9rem; color: var(--text-secondary);">目标服务</div>
+                                <div style="font-weight: 600; color: #388e3c;">Cloudflare Service</div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Target Service</div>
                             </div>
                         </div>
                         <p style="text-align: center; color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
-                            通过第三方服务器反向代理 Cloudflare 的 443 端口，实现 Workers 对 Cloudflare 服务的访问
+                            Reverse proxy Cloudflare's 443 port through third-party servers to enable Workers access to Cloudflare services
                         </p>
                     </div>
 
-                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 实际应用效果</h3>
+                    <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 Practical Application Effect</h3>
                     <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
                         因此，你访问网络时的 IP 归属地取决于访问的目标网站类型：
                     </p>
