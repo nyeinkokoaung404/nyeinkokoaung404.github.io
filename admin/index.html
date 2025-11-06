@@ -3532,7 +3532,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 模块5: 订阅转换配置 -->
             <div class="module collapsed">
                 <div class="module-title" onclick="toggleModule(this)">
-                    🔄 订阅转换配置
+                    🔄 Subscription Conversion Configuration
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -3540,16 +3540,16 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="subAPI">订阅转换后端</label>
+                        <label for="subAPI">Subscription Conversion Backend</label>
                         <div class="readonly-wrapper" onclick="openSubAPIModal()">
-                            <input type="text" id="subAPI" title="订阅转换后端" readonly
+                            <input type="text" id="subAPI" title="Subscription Conversion Backend" readonly
                                 placeholder="https://SUBAPI.cmliussss.net" class="subapi-input">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="subConfig">订阅转换配置文件</label>
-                        <input type="text" id="subConfig" title="订阅转换配置文件"
+                        <label for="subConfig">Subscription Conversion Config File</label>
+                        <input type="text" id="subConfig" title="Subscription Conversion Config File"
                             placeholder="https://raw.githubusercontent.com/..." onchange="markModified('convert')">
                     </div>
 
@@ -3557,8 +3557,8 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                         <label for="emoji">Emoji</label>
                         <div class="input-wrapper">
                             <div class="checkbox-group">
-                                <input type="checkbox" id="emoji" title="启用Emoji" onchange="markModified('convert')">
-                                <label for="emoji" class="checkbox-label">启用</label>
+                                <input type="checkbox" id="emoji" title="Enable Emoji" onchange="markModified('convert')">
+                                <label for="emoji" class="checkbox-label">Enable</label>
                             </div>
                         </div>
                     </div>
@@ -3566,9 +3566,9 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     <div class="module-footer">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('convert')" disabled
-                                id="cancelConvertBtn">取消</button>
+                                id="cancelConvertBtn">Cancel</button>
                             <button type="button" class="btn btn-primary" onclick="saveConvert()" disabled
-                                id="saveConvertBtn">保存</button>
+                                id="saveConvertBtn">Save</button>
                         </div>
                     </div>
                 </div>
@@ -3577,7 +3577,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 模块6: 消息通知设置 -->
             <div class="module collapsed">
                 <div class="module-title" onclick="toggleModule(this)">
-                    🔔 消息通知设置
+                    🔔 Message Notification Settings
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
@@ -3589,38 +3589,38 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                         <label>
                             Telegram Bot 通知设置
                             <div class="checkbox-group">
-                                <input type="checkbox" id="telegramEnabled" title="启用TelegramBot通知"
+                                <input type="checkbox" id="telegramEnabled" title="Enable Telegram Bot Notifications"
                                     onchange="markModified('notification')" disabled>
-                                <label for="telegramEnabled" class="checkbox-label">启用</label>
+                                <label for="telegramEnabled" class="checkbox-label">Enable</label>
                             </div>
                         </label>
                         <div class="notification-controls">
                             <button type="button" class="btn btn-notification-config"
-                                onclick="openTelegramConfigModal()">⚙️参数配置</button>
+                                onclick="openTelegramConfigModal()">⚙️Parameter Configuration</button>
                             <button type="button" class="btn btn-clear-config"
-                                onclick="clearTelegramConfig()">🗑️清除配置</button>
+                                onclick="clearTelegramConfig()">🗑️Clear Configuration</button>
                         </div>
                     </div>
 
                     <!-- Cloudflare 可用请求数统计 -->
                     <div class="form-group notification-row">
                         <label>
-                            Cloudflare Workers/Pages 可用请求数统计
+                            Cloudflare Workers/Pages Available Request Count Statistics
                         </label>
                         <div class="notification-controls">
                             <button type="button" class="btn btn-notification-config"
-                                onclick="openCloudflareConfigModal()">⚙️参数配置</button>
+                                onclick="openCloudflareConfigModal()">⚙️Parameter Configuration</button>
                             <button type="button" class="btn btn-clear-config"
-                                onclick="clearCloudflareConfig()">🗑️清除配置</button>
+                                onclick="clearCloudflareConfig()">🗑️Clear Configuration</button>
                         </div>
                     </div>
 
                     <div class="module-footer">
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary" onclick="cancelEdit('notification')"
-                                disabled id="cancelNotificationBtn">取消</button>
+                                disabled id="cancelNotificationBtn">Cancel</button>
                             <button type="button" class="btn btn-primary" onclick="saveNotification()" disabled
-                                id="saveNotificationBtn">保存</button>
+                                id="saveNotificationBtn">Save</button>
                         </div>
                     </div>
                 </div>
@@ -3629,17 +3629,17 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 模块7: 查看所有日志 -->
             <div class="module collapsed">
                 <div class="module-title" onclick="toggleModule(this); loadLogsOnExpand(this)">
-                    📋 查看操作日志
+                    📋 View Operation Logs
                     <svg class="collapse-icon" viewBox="0 0 24 24">
                         <path d="M7 10l5 5 5-5z" />
                     </svg>
                 </div>
                 <div class="module-content">
                     <div id="logsContainer" class="logs-container">
-                        <div class="logs-loading">加载中...</div>
+                        <div class="logs-loading">Loading...</div>
                     </div>
                     <div class="logs-footer">
-                        <p class="logs-footer-text">因为KV空间有限，所以只保留4MB的操作日志，当日志大小超过该容量会自动清理最老的日志记录。</p>
+                        <p class="logs-footer-text">Due to limited KV space, only 4MB of operation logs are retained. When the log size exceeds this capacity, the oldest log records will be automatically cleaned.</p>
                         <button type="button" class="btn btn-primary btn-all-logs" onclick="showAllLogs()">All Logs</button>
                     </div>
                 </div>
@@ -3668,7 +3668,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                             d="M57.94 126.648q55.98-24.384 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072" />
                     </svg>
                 </a>
-                <button type="button" class="social-link theme-toggle" id="themeToggle" title="切换夜间模式"
+                <button type="button" class="social-link theme-toggle" id="themeToggle" title="Switch to night mode"
                     onclick="toggleTheme()">
                     <!-- 太阳图标 (日间模式显示) -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="theme-icon sun-icon">
@@ -3698,19 +3698,19 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeQRCode()">×</button>
             <div id="qrcodeContainer" class="qrcode-container"></div>
-            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeQRCode()">关闭</button>
+            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeQRCode()">Close</button>
         </div>
     </div>
 
     <!-- 重置配置确认弹窗 -->
     <div class="modal-overlay" id="resetModal" onclick="closeResetModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 重置配置</h2>
-            <p class="reset-modal-description">重置配置将会初始化所有设置，包括订阅生成、节点信息、反代配置等。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否完全重置配置？</p>
+            <h2 class="reset-modal-title">⚠️ Reset Configuration</h2>
+            <p class="reset-modal-description">Resetting configuration will initialize all settings, including subscription generation, node information, reverse proxy configuration, etc. This operation cannot be undone, please proceed with caution.</p>
+            <p class="reset-modal-confirm">Are you sure you want to completely reset the configuration?</p>
             <div class="reset-modal-buttons">
-                <button type="button" class="btn btn-primary btn-confirm-reset" onclick="confirmReset()">确定重置</button>
-                <button type="button" class="btn btn-secondary" onclick="closeResetModal()">取消重置</button>
+                <button type="button" class="btn btn-primary btn-confirm-reset" onclick="confirmReset()">Confirm Reset</button>
+                <button type="button" class="btn btn-secondary" onclick="closeResetModal()">Cancel Reset</button>
             </div>
         </div>
     </div>
@@ -3718,13 +3718,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <!-- 清除Telegram配置确认弹窗 -->
     <div class="modal-overlay" id="clearTelegramModal" onclick="closeClearTelegramModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 清除 Telegram 配置</h2>
-            <p class="reset-modal-description">清除 Telegram Bot 通知配置后，将无法继续接收 Telegram 消息通知。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否清除 Telegram 通知配置？</p>
+            <h2 class="reset-modal-title">⚠️ Clear Telegram Configuration</h2>
+            <p class="reset-modal-description">Clearing Telegram Bot notification configuration will stop Telegram message notifications. This operation cannot be undone, please proceed with caution.</p>
+            <p class="reset-modal-confirm">Are you sure you want to clear Telegram notification configuration?</p>
             <div class="reset-modal-buttons">
                 <button type="button" class="btn btn-primary btn-confirm-reset"
-                    onclick="confirmClearTelegramConfig()">确定清除</button>
-                <button type="button" class="btn btn-secondary" onclick="closeClearTelegramModal()">取消</button>
+                    onclick="confirmClearTelegramConfig()">Confirm Clear</button>
+                <button type="button" class="btn btn-secondary" onclick="closeClearTelegramModal()">Cancel</button>
             </div>
         </div>
     </div>
@@ -3732,13 +3732,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <!-- 清除Cloudflare配置确认弹窗 -->
     <div class="modal-overlay" id="clearCloudflareModal" onclick="closeClearCloudflareModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
-            <h2 class="reset-modal-title">⚠️ 清除 Cloudflare 配置</h2>
-            <p class="reset-modal-description">清除 Cloudflare 配置后，将无法继续统计 Workers/Pages 的请求数。此操作不可撤销，请谨慎操作。</p>
-            <p class="reset-modal-confirm">确定是否清除 Cloudflare 通知配置？</p>
+            <h2 class="reset-modal-title">⚠️ Clear Cloudflare Configuration</h2>
+            <p class="reset-modal-description">Clearing Cloudflare configuration will stop Workers/Pages request count statistics. This operation cannot be undone, please proceed with caution.</p>
+            <p class="reset-modal-confirm">Are you sure you want to clear Cloudflare notification configuration?</p>
             <div class="reset-modal-buttons">
                 <button type="button" class="btn btn-primary btn-confirm-reset"
-                    onclick="confirmClearCloudflareConfig()">确定清除</button>
-                <button type="button" class="btn btn-secondary" onclick="closeClearCloudflareModal()">取消</button>
+                    onclick="confirmClearCloudflareConfig()">Confirm Clear</button>
+                <button type="button" class="btn btn-secondary" onclick="closeClearCloudflareModal()">Cancel</button>
             </div>
         </div>
     </div>
@@ -3747,9 +3747,9 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="logsModal" onclick="closeLogsModal(event)">
         <div class="modal logs-modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeLogsModal()">×</button>
-            <h2 class="logs-modal-title">📋 所有操作日志</h2>
+            <h2 class="logs-modal-title">📋 All Operation Logs</h2>
             <div id="allLogsContainer" class="logs-all-container"></div>
-            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeLogsModal()">关闭</button>
+            <button type="button" class="btn btn-primary btn-close-modal" onclick="closeLogsModal()">Close</button>
         </div>
     </div>
 
@@ -3757,17 +3757,17 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="subAPIModal" onclick="closeSubAPIModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeSubAPIModal()">×</button>
-            <h2 class="subapi-modal-title">⚙️ 订阅转换后端</h2>
+            <h2 class="subapi-modal-title">⚙️ Subscription Conversion Backend</h2>
             <div class="form-group subapi-form-group">
-                <label>订阅转换后端地址</label>
-                <input type="text" id="testSubAPIInput" placeholder="输入订阅转换后端地址">
+                <label>Subscription Conversion Backend Address</label>
+                <input type="text" id="testSubAPIInput" placeholder="Enter subscription conversion backend address">
             </div>
             <div id="subAPIStatus" class="subapi-status"></div>
             <div class="subapi-buttons">
-                <button type="button" class="btn btn-primary btn-test-api" onclick="testSubAPI()">可用性验证</button>
+                <button type="button" class="btn btn-primary btn-test-api" onclick="testSubAPI()">Availability Check</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="subAPIConfirmBtn"
-                    onclick="confirmSubAPI()" disabled>确定</button>
-                <button type="button" class="btn btn-secondary btn-cancel-api" onclick="closeSubAPIModal()">取消</button>
+                    onclick="confirmSubAPI()" disabled>Confirm</button>
+                <button type="button" class="btn btn-secondary btn-cancel-api" onclick="closeSubAPIModal()">Cancel</button>
             </div>
         </div>
     </div>
@@ -3776,22 +3776,22 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
     <div class="modal-overlay" id="telegramConfigModal" onclick="closeTelegramConfigModal(event)">
         <div class="modal" onclick="event.stopPropagation()">
             <button type="button" class="modal-close" onclick="closeTelegramConfigModal()">×</button>
-            <h2 class="subapi-modal-title">🤖 TelegramBot 通知参数配置</h2>
+            <h2 class="subapi-modal-title">🤖 TelegramBot Notification Parameter Configuration</h2>
             <div class="form-group subapi-form-group">
                 <label>Bot Token</label>
-                <input type="text" id="telegramBotToken" placeholder="输入Telegram Bot Token">
+                <input type="text" id="telegramBotToken" placeholder="Enter Telegram Bot Token">
             </div>
             <div class="form-group subapi-form-group">
                 <label>Chat ID</label>
-                <input type="text" id="telegramChatID" placeholder="输入Chat ID">
+                <input type="text" id="telegramChatID" placeholder="Enter Chat ID">
             </div>
             <div id="telegramStatus" class="subapi-status"></div>
             <div class="subapi-buttons">
-                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">可用性验证</button>
+                <button type="button" class="btn btn-primary btn-test-api" onclick="testTelegramConfig()">Availability verification</button>
                 <button type="button" class="btn btn-primary btn-confirm-api" id="telegramConfirmBtn"
-                    onclick="confirmTelegramConfig()" disabled>保存</button>
+                    onclick="confirmTelegramConfig()" disabled>Save</button>
                 <button type="button" class="btn btn-secondary btn-cancel-api"
-                    onclick="closeTelegramConfigModal()">取消</button>
+                    onclick="closeTelegramConfigModal()">Cancel</button>
             </div>
         </div>
     </div>
