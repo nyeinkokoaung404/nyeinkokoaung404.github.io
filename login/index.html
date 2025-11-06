@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>登录设置页面</title>
+<title>Admin Login Page</title>
 <style>
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ body {
     overflow: hidden
 }
 
-/* 通用动画 */
+/* General Animations */
 @keyframes blurOverlayAppear {
     0% {
         opacity: 0;
@@ -75,7 +76,7 @@ body {
     }
 }
 
-/* 背景和遮罩层 */
+/* Background and Overlay */
 #background-iframe {
     position: fixed;
     top: 0;
@@ -101,7 +102,7 @@ body {
     opacity: 0
 }
 
-/* 通用容器包装器 */
+/* General Container Wrapper */
 .page-wrapper {
     position: fixed;
     top: 0;
@@ -116,7 +117,7 @@ body {
     overflow-y: auto
 }
 
-/* 通用卡片容器 */
+/* General Card Container */
 .card-container {
     background: rgba(255,255,255,0.95);
     -webkit-backdrop-filter: blur(20px);
@@ -127,7 +128,9 @@ body {
     width: 100%;
     animation: containerAppear 1s ease-out .8s backwards;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
+    max-width: 440px; /* Specific width for card */
+    text-align: center
 }
 
 .card-container::before {
@@ -142,7 +145,7 @@ body {
     animation: gradientShift 3s ease infinite
 }
 
-/* 页面标题和图标 */
+/* Page Header and Icon */
 .page-header {
     margin-bottom: 35px;
     text-align: center
@@ -179,7 +182,7 @@ body {
     letter-spacing: -0.5px
 }
 
-/* 表单样式 */
+/* Form Styles */
 .page-form {
     display: flex;
     flex-direction: column;
@@ -249,7 +252,7 @@ body {
     color: #6b7280!important
 }
 
-/* 按钮样式 */
+/* Button Styles */
 .btn {
     padding: 16px 20px;
     border: 0;
@@ -303,7 +306,7 @@ body {
     pointer-events: none
 }
 
-/* 页脚提示 */
+/* Footer Hint */
 .footer-hint {
     margin-top: 30px;
     font-size: 13px;
@@ -323,7 +326,7 @@ body {
     color: #f6821f
 }
 
-/* 模态框 */
+/* Modal */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -368,7 +371,7 @@ body {
     color: #1f2937
 }
 
-/* 响应式设计 - 平板 */
+/* Responsive Design - Tablet */
 @media(max-width:768px) {
     .page-wrapper {
         padding: 20px 16px;
@@ -434,7 +437,7 @@ body {
     }
 }
 
-/* 响应式设计 - 手机 */
+/* Responsive Design - Mobile */
 @media(max-width:480px) {
     .page-wrapper {
         padding: 12px;
@@ -465,7 +468,7 @@ body {
     }
 }
 
-/* 响应式设计 - 横屏 */
+/* Responsive Design - Landscape */
 @media(max-height:600px) and (orientation:landscape) {
     .page-wrapper {
         padding: 20px;
@@ -508,12 +511,7 @@ body {
     }
 }
 
-.card-container {
-    max-width: 440px;
-    text-align: center
-}
-
-/* 错误消息样式 */
+/* Error Message Styles */
 .login-error {
     margin-top: 24px;
     padding: 14px 18px;
@@ -559,7 +557,7 @@ body {
     }
 }
 
-/* 加载状态 */
+/* Loading State */
 .btn-loading {
     position: relative;
     color: transparent !important
@@ -586,49 +584,51 @@ body {
     }
 }
 
-/* 按钮全宽样式 */
+/* Full Width Button Style */
 .btn-full-width {
     width: 100%;
 }
 
-/* 错误消息隐藏状态 */
+/* Error Message Hidden State */
 .login-error-hidden {
     display: none;
 }
 </style>
 </head>
 <body>
-    <!-- 背景内容 -->
-    <iframe id="background-iframe" src="/" title="背景内容"></iframe>
+    <!-- Background Content -->
+    <iframe id="background-iframe" src="/" title="Background Content"></iframe>
 
-    <!-- 毛玻璃效果遮盖层 -->
+    <!-- Frosted Glass Overlay -->
     <div id="blur-overlay"></div>
 
-    <!-- 登录框容器 -->
+    <!-- Login Box Container -->
     <div class="page-wrapper">
         <div class="card-container">
             <div class="page-header">
                 <div class="page-icon">
+                    <!-- Lock/Shield Icon -->
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
                     </svg>
                 </div>
-                <h1 class="page-title">登录设置页面</h1>
+                <h1 class="page-title">Admin Login</h1>
             </div>
             <form id="loginForm" class="page-form">
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <input type="password" id="password" name="password" class="with-icon" placeholder="请输入您的管理员密码" required autofocus>
+                        <input type="password" id="password" name="password" class="with-icon" placeholder="Enter your administrator password" required autofocus>
+                        <!-- Password Icon -->
                         <svg class="input-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                         </svg>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full-width" id="loginBtn">立即登录</button>
+                <button type="submit" class="btn btn-primary btn-full-width" id="loginBtn">Log In</button>
                 <div id="errorMsg" class="login-error login-error-hidden"></div>
             </form>
             <div class="footer-hint">
-                由 <a href="https://github.com/cmliu/edgetunnel" target="_blank" rel="noopener">edgetunnel</a> 强力驱动
+                Powered by <a href="https://t.me/premium_channel_404" target="_blank" rel="noopener">CHANNEL 404 [🇲🇲]</a>
             </div>
         </div>
     </div>
@@ -642,10 +642,10 @@ body {
         const errorMsg = document.getElementById('errorMsg');
         const passwordInput = document.getElementById('password');
         
-        // 清除之前的错误信息
+        // Clear previous error message
         errorMsg.classList.add('login-error-hidden');
         
-        // 按钮加载状态
+        // Set button loading state
         loginBtn.disabled = true;
         loginBtn.classList.add('btn-loading');
         
@@ -662,29 +662,36 @@ body {
                 const contentType = response.headers.get('content-type');
                 
                 if (contentType && contentType.includes('application/json')) {
-                    // 返回的是JSON，说明登录成功
+                    // Response is JSON, indicating successful login (or successful response structure)
                     const data = await response.json();
                     if (data.success) {
-                        // 登录成功，跳转到管理页面
+                        // Login successful, redirect to admin page
                         window.location.href = '/admin';
+                    } else {
+                        // Handle case where status is OK but success field is false
+                        errorMsg.textContent = 'Login failed. Please check credentials.';
+                        errorMsg.classList.remove('login-error-hidden');
+                        passwordInput.focus();
+                        passwordInput.select();
                     }
                 } else {
-                    // 返回的是HTML，说明密码错误
-                    errorMsg.textContent = '密码错误，请重试';
+                    // Response is non-JSON (e.g., HTML), indicating wrong password or redirection logic
+                    errorMsg.textContent = 'Incorrect password, please try again.';
                     errorMsg.classList.remove('login-error-hidden');
                     passwordInput.focus();
                     passwordInput.select();
                 }
             } else {
-                errorMsg.textContent = '登录失败，请重试';
+                // Handle non-2xx HTTP status codes
+                errorMsg.textContent = 'Login failed, please try again.';
                 errorMsg.classList.remove('login-error-hidden');
             }
         } catch (error) {
-            console.error('登录错误:', error);
-            errorMsg.textContent = '网络错误，请检查连接';
+            console.error('Login error:', error);
+            errorMsg.textContent = 'Network error, please check your connection.';
             errorMsg.classList.remove('login-error-hidden');
         } finally {
-            // 恢复按钮状态
+            // Restore button state
             loginBtn.disabled = false;
             loginBtn.classList.remove('btn-loading');
         }
