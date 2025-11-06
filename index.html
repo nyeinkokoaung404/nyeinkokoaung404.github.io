@@ -1,31 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Channel 404</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Google Font: Inter -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            /* Custom CSS for animations */
+            @keyframes fadeInScale {
+                from {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to nginx!</title>
-    <style>
-        body {
-            width: 35em;
-            margin: 0 auto;
-            font-family: Tahoma, Verdana, Arial, sans-serif;
-        }
-    </style>
-</head>
+            @keyframes glitchEffect {
+                0% {
+                    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.02em -0.04em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+                }
+                14% {
+                    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.02em -0.04em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+                }
+                15% {
+                    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.02em 0.035em 0 rgba(0, 255, 0, 0.75), -0.035em -0.05em 0 rgba(0, 0, 255, 0.75);
+                }
+                49% {
+                    text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.02em 0.035em 0 rgba(0, 255, 0, 0.75), -0.035em -0.05em 0 rgba(0, 0, 255, 0.75);
+                }
+                50% {
+                    text-shadow: 0.05em 0.035em 0 rgba(255, 0, 0, 0.75), 0.03em 0 0 rgba(0, 255, 0, 0.75), 0 -0.04em 0 rgba(0, 0, 255, 0.75);
+                }
+                99% {
+                    text-shadow: 0.05em 0.035em 0 rgba(255, 0, 0, 0.75), 0.03em 0 0 rgba(0, 255, 0, 0.75), 0 -0.04em 0 rgba(0, 0, 255, 0.75);
+                }
+                100% {
+                    text-shadow: 0 0 0 rgba(255, 0, 0, 0), 0 0 0 rgba(0, 255, 0, 0), 0 0 0 rgba(0, 0, 255, 0);
+                }
+            }
 
-<body>
-    <h1>Welcome to nginx!</h1>
-    <p>If you see this page, the nginx web server is successfully installed and
-        working. Further configuration is required.</p>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
 
-    <p>For online documentation and support please refer to
-        <a href="http://nginx.org/">nginx.org</a>.<br />
-        Commercial support is available at
-        <a href="http://nginx.com/">nginx.com</a>.
-    </p>
-
-    <p><em>Thank you for using nginx.</em></p>
-</body>
-
-</html>
+            .animated-text {
+                animation: fadeInScale 1s ease-out forwards, glitchEffect 2s infinite alternate;
+            }
+        </style>
+    </head>
+    <body class="bg-gradient-to-br from-gray-900 to-black min-h-screen flex items-center justify-center text-white p-4">
+        <div class="bg-gray-800 bg-opacity-70 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-2xl text-center max-w-lg w-full border border-gray-700">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 animated-text">
+                Channel 404
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8">
+                It seems you've ventured into uncharted digital territory.
+            </p>
+            <p class="text-md md:text-lg text-gray-400 mb-4">
+                For updates and more, join our community:
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://t.me/premium_channel_404" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-blue-600 hover:bg-blue-700 transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm4.55 7.234l-6.75 4.5c-.15.1-.33.15-.51.15-.18 0-.36-.05-.51-.15-.3-.2-.45-.45-.45-.75V6.5c0-.3.15-.55.45-.75.3-.2.6-.2.9 0l6.75 4.5c.3.2.45.45.45.75s-.15.55-.45.75z"></path></svg>
+                    Join Telegram
+                </a>
+                <a href="http://t.me/nkka404"
+                   class="inline-flex items-center justify-center px-6 py-3 rounded-full text-white font-semibold bg-purple-600 hover:bg-purple-700 transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </body>
+    </html>
