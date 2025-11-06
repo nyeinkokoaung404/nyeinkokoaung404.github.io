@@ -3397,12 +3397,12 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 <div class="module-content">
 
                     <div class="form-group">
-                        <label for="subName">订阅名称</label>
+                        <label for="subName">Subscription Name</label>
                         <input type="text" id="subName" title="Subscription Name" onchange="markModified('config')">
                     </div>
 
                     <div class="form-group">
-                        <label for="nodeHost">节点域名</label>
+                        <label for="nodeHost">Node Domain</label>
                         <input type="text" id="nodeHost" title="Node Domain" readonly>
                     </div>
 
@@ -3412,7 +3412,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     </div>
 
                     <div class="form-group">
-                        <label for="protocol">节点协议</label>
+                        <label for="protocol">Node Protocol</label>
                         <select id="protocol" title="Node Protocol" onchange="updateProtocol(); markModified('config')">
                             <option value="vless">VLESS</option>
                             <option value="trojan">Trojan</option>
@@ -3587,7 +3587,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     <!-- Telegram Bot 通知设置 -->
                     <div class="form-group notification-row">
                         <label>
-                            Telegram Bot 通知设置
+                            Telegram Bot Notification Settings
                             <div class="checkbox-group">
                                 <input type="checkbox" id="telegramEnabled" title="Enable Telegram Bot Notifications"
                                     onchange="markModified('notification')" disabled>
@@ -4273,7 +4273,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
         async function loadCustomIPs() {
             const textarea = document.getElementById('customIPs');
             textarea.disabled = true;
-            textarea.value = '正在加载...';
+            textarea.value = 'Loading...';
 
             try {
                 const response = await fetch('/admin/ADD.txt?_t=' + Date.now(), {
@@ -4680,7 +4680,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
         function copySubscription(elementId) {
             const element = document.getElementById(elementId);
             navigator.clipboard.writeText(element.value).then(() => {
-                showToast('已复制到剪贴板', 'success');
+                showToast('Copied to clipboard', 'success');
             }).catch(() => {
                 showToast('复制失败', 'error');
             });
@@ -5347,7 +5347,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             const testBtn = event.target;
 
             if (!token || !chatID) {
-                statusEl.textContent = '❌ 请填写Bot Token和Chat ID';
+                statusEl.textContent = '❌ Please fill in the Bot Token and Chat ID.';
                 statusEl.style.display = 'block';
                 statusEl.style.background = 'linear-gradient(135deg, #ef4444 0, #dc2626 100%)';
                 statusEl.style.color = '#fff';
@@ -5358,7 +5358,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             try {
                 testBtn.disabled = true;
-                statusEl.textContent = '⏳ 验证中...';
+                statusEl.textContent = '⏳ Verification in progress...';
                 statusEl.style.display = 'block';
                 statusEl.style.background = 'linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%)';
                 statusEl.style.color = '#fff';
@@ -5371,40 +5371,40 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                 const getMeResponse = await fetch(getMeUrl);
                 if (!getMeResponse.ok) {
-                    throw new Error('Bot Token 无效，无法获取机器人信息');
+                    throw new Error('Bot Token token is invalid, and bot information cannot be obtained.');
                 }
 
                 const getMeData = await getMeResponse.json();
                 if (!getMeData.ok) {
-                    throw new Error('Bot Token 无效: ' + (getMeData.description || '未知错误'));
+                    throw new Error('Bot Token invalid: ' + (getMeData.description || 'Unknown error'));
                 }
 
                 // 第二步：通过Bot Token向Chat ID推送测试消息
                 const sendUrlParams = new URLSearchParams({
                     chat_id: chatID,
-                    text: '✅ Telegram 通知配置已验证成功！'
+                    text: '✅ Telegram notification configuration has been successfully verified!'
                 });
                 const sendUrl = `https://api.telegram.org/bot${token}/sendMessage?${sendUrlParams}`;
 
                 const sendResponse = await fetch(sendUrl);
                 if (!sendResponse.ok) {
-                    throw new Error('发送消息失败，请检查Chat ID是否正确');
+                    throw new Error('Message sending failed. Please check if the Chat ID is correct.');
                 }
 
                 const sendData = await sendResponse.json();
                 if (!sendData.ok) {
-                    throw new Error('Chat ID 无效: ' + (sendData.description || '未知错误'));
+                    throw new Error('Chat ID invalid: ' + (sendData.description || 'Unknown error'));
                 }
 
                 // 验证成功
                 statusEl.style.background = 'linear-gradient(135deg, #10b981 0, #059669 100%)';
-                statusEl.textContent = '✅ Bot Token 和 Chat ID 均有效';
+                statusEl.textContent = '✅ Both Bot Token and Chat ID are valid.';
                 confirmBtn.disabled = false;
                 confirmBtn.style.opacity = '1';
 
             } catch (error) {
                 statusEl.style.background = 'linear-gradient(135deg, #ef4444 0, #dc2626 100%)';
-                statusEl.textContent = '❌ 验证失败: ' + error.message;
+                statusEl.textContent = '❌ Verification failed: ' + error.message;
                 confirmBtn.disabled = true;
                 confirmBtn.style.opacity = '0.5';
             } finally {
@@ -5555,7 +5555,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 apiToken = document.getElementById('cloudflareAPIToken').value.trim();
 
                 if (!accountID || !apiToken) {
-                    statusEl.textContent = '❌ 请填写 Account ID 和 API Token';
+                    statusEl.textContent = '❌ Please fill in your Account ID and API Token.';
                     statusEl.style.display = 'block';
                     statusEl.style.background = 'linear-gradient(135deg, #ef4444 0, #dc2626 100%)';
                     statusEl.style.color = '#fff';
@@ -5568,7 +5568,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             try {
                 testBtn.disabled = true;
-                statusEl.textContent = '⏳ 检测中...';
+                statusEl.textContent = '⏳ During testing...';
                 statusEl.style.display = 'block';
                 statusEl.style.background = 'linear-gradient(135deg, #3b82f6 0, #1d4ed8 100%)';
                 statusEl.style.color = '#fff';
@@ -5586,7 +5586,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 const response = await fetch('/admin/getCloudflareUsage?' + queryParams.toString());
 
                 if (!response.ok) {
-                    throw new Error('请求失败 (HTTP ' + response.status + ')');
+                    throw new Error('Request failed (HTTP ' + response.status + ')');
                 }
 
                 const data = await response.json();
@@ -5595,7 +5595,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     // 验证成功
                     statusEl.style.background = 'linear-gradient(135deg, #10b981 0, #059669 100%)';
                     const percentage = (data.total / 100000 * 100).toFixed(2);
-                    statusEl.textContent = `✅ 验证成功！ 今天的请求配额: ${data.total}/100000 (${percentage}%)`;
+                    statusEl.textContent = `✅ Verification successful! Today's request quota.: ${data.total}/100000 (${percentage}%)`;
                     confirmBtn.disabled = false;
                     confirmBtn.style.opacity = '1';
                     confirmBtn.dataset.testPassed = 'true';
@@ -5609,14 +5609,14 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 } else {
                     // 验证失败
                     statusEl.style.background = 'linear-gradient(135deg, #ef4444 0, #dc2626 100%)';
-                    statusEl.textContent = '❌ 验证失败：凭证无效或无权限';
+                    statusEl.textContent = '❌ Verification failed: Invalid credentials or lack of permission.';
                     confirmBtn.disabled = true;
                     confirmBtn.style.opacity = '0.5';
                     confirmBtn.dataset.testPassed = 'false';
                 }
             } catch (error) {
                 statusEl.style.background = 'linear-gradient(135deg, #ef4444 0, #dc2626 100%)';
-                statusEl.textContent = '❌ 检测失败: ' + error.message;
+                statusEl.textContent = '❌ Detection failed: ' + error.message;
                 confirmBtn.disabled = true;
                 confirmBtn.style.opacity = '0.5';
                 confirmBtn.dataset.testPassed = 'false';
@@ -5631,7 +5631,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             // 检查是否通过了验证
             if (confirmBtn.dataset.testPassed !== 'true') {
-                showToast('请先点击"可用性验证"按钮通过验证', 'error');
+                showToast('Please click the Availability Verification button to pass the verification first.', 'error');
                 return;
             }
 
@@ -5643,7 +5643,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             try {
                 confirmBtn.disabled = true;
-                confirmBtn.textContent = '保存中...';
+                confirmBtn.textContent = 'Saving...';
 
                 // 构建请求体
                 const payload = {
@@ -5663,7 +5663,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 });
 
                 if (response.ok) {
-                    showToast('✅ Cloudflare 配置已保存', 'success');
+                    showToast('✅ Cloudflare Configuration Saved', 'success');
                     closeCloudflareConfigModal();
 
                     // 1秒后刷新页面
@@ -5672,14 +5672,14 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     }, 1000);
                 } else {
                     const errorData = await response.json();
-                    showToast('❌ 保存失败: ' + (errorData.error || '未知错误'), 'error');
+                    showToast('❌ Save failed: ' + (errorData.error || '未知错误'), 'error');
                     confirmBtn.disabled = false;
-                    confirmBtn.textContent = '保存';
+                    confirmBtn.textContent = 'Keep';
                 }
             } catch (error) {
-                showToast('❌ 保存失败: ' + error.message, 'error');
+                showToast('❌ Save failed: ' + error.message, 'error');
                 confirmBtn.disabled = false;
-                confirmBtn.textContent = '保存';
+                confirmBtn.textContent = 'Keep';
             }
         }
 
@@ -5697,13 +5697,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     body: JSON.stringify(currentConfig)
                 });
 
-                if (!response.ok) throw new Error('保存失败');
+                if (!response.ok) throw new Error('Save failed');
 
-                showToast('✅ 启用状态已保存', 'success');
+                showToast('✅ Enabled status has been saved', 'success');
                 modifiedSections.delete('notification');
                 updateButtonStates();
             } catch (error) {
-                showToast('❌ 保存失败: ' + error.message, 'error');
+                showToast('❌ Save failed: ' + error.message, 'error');
             }
         }
 
@@ -5731,15 +5731,15 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                 if (response.ok && data.success) {
                     closeClearTelegramModal();
-                    showToast('✅ Telegram 配置已清除，页面即将刷新...', 'success');
+                    showToast('✅ Telegram Configuration cleared，The page is about to refresh...', 'success');
                     setTimeout(() => {
                         location.reload();
                     }, 1000);
                 } else {
-                    showToast('❌ 清除失败: ' + (data.message || '未知错误'), 'error');
+                    showToast('❌ Cleanup failed: ' + (data.message || 'Unknown error'), 'error');
                 }
             } catch (error) {
-                showToast('❌ 清除出错: ' + error.message, 'error');
+                showToast('❌ Clear errors: ' + error.message, 'error');
             }
         }
 
@@ -5766,15 +5766,15 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                 if (response.ok && data.success) {
                     closeClearCloudflareModal();
-                    showToast('✅ Cloudflare 配置已清除，页面即将刷新...', 'success');
+                    showToast('✅ Cloudflare configuration has been cleared, page will refresh shortly...', 'success');
                     setTimeout(() => {
                         location.reload();
                     }, 1000);
                 } else {
-                    showToast('❌ 清除失败: ' + (data.message || '未知错误'), 'error');
+                    showToast('❌ Cleanup failed: ' + (data.message || '未知错误'), 'error');
                 }
             } catch (error) {
-                showToast('❌ 清除出错: ' + error.message, 'error');
+                showToast('❌ Clear errors: ' + error.message, 'error');
             }
         }
 
@@ -6031,7 +6031,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             if (convertedURL !== urlInput) {
                 document.getElementById('apiOptimizeURL').value = convertedURL;
                 urlInput = convertedURL;
-                showToast('✅ GitHub链接已自动转换为raw格式', 'info');
+                showToast('✅ GitHub links have been automatically converted to raw format.', 'info');
             }
 
             if (!isValidURL(urlInput)) {
@@ -6061,7 +6061,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     // 更新端口输入框
                     document.getElementById('apiOptimizePort').value = detectedPort;
 
-                    showToast(`✅ 已自动识别URL中的端口号: ${detectedPort}，并已移除port参数`, 'success');
+                    showToast(`✅ The port number in the URL has been automatically identified.: ${detectedPort}，The port parameter has been removed`, 'success');
                 }
             } catch (error) {
                 console.log('URL port参数提取失败:', error);
@@ -6095,20 +6095,20 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                     document.getElementById('apiOptimizeResults').value = results;
                     document.getElementById('btnAppendAPI').disabled = false;
                     document.getElementById('btnAppendResults').disabled = false;
-                    showToast('✅ API接口验证成功！', 'success');
+                    showToast('✅ API interface verification successful!', 'success');
                 } else {
                     // 接口不可用
-                    document.getElementById('apiOptimizeResults').value = '❌ 接口不可用，请检查URL和端口是否正确';
+                    document.getElementById('apiOptimizeResults').value = '❌ The interface is unavailable. Please check if the URL and port are correct.';
                     document.getElementById('btnAppendAPI').disabled = true;
                     document.getElementById('btnAppendResults').disabled = true;
-                    showToast('❌ API接口验证失败，请检查接口', 'error');
+                    showToast('❌ API verification failed, Please check the interface', 'error');
                 }
             } catch (error) {
                 console.error('API验证错误:', error);
-                document.getElementById('apiOptimizeResults').value = `❌ 验证出错: ${error.message}`;
+                document.getElementById('apiOptimizeResults').value = `❌ Verification error: ${error.message}`;
                 document.getElementById('btnAppendAPI').disabled = true;
                 document.getElementById('btnAppendResults').disabled = true;
-                showToast('❌ 验证出错，请稍后重试', 'error');
+                showToast('❌ Verification error，Please try again later', 'error');
             } finally {
                 const btn = document.getElementById('btnVerifyAPI');
                 btn.disabled = false;
@@ -6152,7 +6152,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             // 标记为已修改
             markModified('sub');
 
-            showToast('✅ API URL已追加到自定义优选地址', 'success');
+            showToast('✅ The API URL has been appended to the custom preferred address.', 'success');
             closeAPIOptimizeModal();
         }
 
@@ -6162,7 +6162,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             const results = resultsTextarea.value.trim();
 
             if (!results || results.startsWith('❌')) {
-                alert('请先进行可用性验证且验证通过');
+                alert('Please perform availability verification first and ensure the verification passes.');
                 return;
             }
 
@@ -6179,7 +6179,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             // 标记为已修改
             markModified('sub');
 
-            showToast('✅ API结果已追加到自定义优选地址', 'success');
+            showToast('✅ The API results have been appended to the custom preferred address.', 'success');
             closeAPIOptimizeModal();
         }
 
@@ -6188,7 +6188,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             console.log('[在线优选] 开始检测网络环境...');
             const detectionBox = document.getElementById('ipDetectionBox');
             const btnStart = document.getElementById('btnStartOptimize');
-            detectionBox.innerHTML = '<div class="ip-detection-info">正在检测您的网络环境...</div>';
+            detectionBox.innerHTML = '<div class="ip-detection-info">Detecting your network environment...</div>';
 
             try {
                 const response = await fetch(`https://speed.cloudflare.com/cdn-cgi/trace?_t=${Date.now()}`);
@@ -6923,7 +6923,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                     // 更新标题显示当前使用的 API
                     if (titleElement) {
-                        titleElement.innerHTML = `<span class="status-indicator" id="status-ipip"></span>国内测试(${config.name})`;
+                        titleElement.innerHTML = `<span class="status-indicator" id="status-ipip"></span>Domestic testing(${config.name})`;
                         setStatus('status-ipip', 'success'); // 重新设置状态,因为 innerHTML 会清除
                     }
 
@@ -6937,11 +6937,11 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             }
 
             // 所有 API 都失败
-            document.getElementById('ipip-ip').innerHTML = '<span class="error">加载失败</span>';
+            document.getElementById('ipip-ip').innerHTML = '<span class="error">Loading failed</span>';
             document.getElementById('ipip-country').textContent = '';
             document.getElementById('ipip-city').textContent = '';
             setStatus('status-ipip', 'error');
-            console.error('所有国内测试 API 都失败');
+            console.error('All domestic API tests failed');
         }
 
         // 获取 EdgeOne 数据
@@ -6955,7 +6955,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 document.getElementById('edgeone-country').textContent = `${data.location.country_code} AS${data.asn.asn} ${data.asn.org}` || '未知';
                 setStatus('status-edgeone', 'success');
             } catch (error) {
-                document.getElementById('edgeone-ip').innerHTML = '<span class="error">加载失败</span>';
+                document.getElementById('edgeone-ip').innerHTML = '<span class="error">Loading failed</span>';
                 document.getElementById('edgeone-country').textContent = '';
                 setStatus('status-edgeone', 'error');
                 console.error('EdgeOne 接口错误:', error);
@@ -6974,7 +6974,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 document.getElementById('cf-country').textContent = data.country + ' ' + data.org || '未知';
                 setStatus('status-cf', 'success');
             } catch (error) {
-                document.getElementById('cf-ip').innerHTML = '<span class="error">加载失败</span>';
+                document.getElementById('cf-ip').innerHTML = '<span class="error">Loading failed</span>';
                 document.getElementById('cf-country').textContent = '';
                 setStatus('status-cf', 'error');
                 console.error('CloudFlare 接口错误:', error);
@@ -7002,7 +7002,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 document.getElementById('twitter-country').textContent = data.loc + ' ' + data.colo || '未知';
                 setStatus('status-twitter', 'success');
             } catch (error) {
-                document.getElementById('twitter-ip').innerHTML = '<span class="error">加载失败</span>';
+                document.getElementById('twitter-ip').innerHTML = '<span class="error">Loading failed</span>';
                 document.getElementById('twitter-country').textContent = '';
                 setStatus('status-twitter', 'error');
                 console.error('推特入口接口错误:', error);
