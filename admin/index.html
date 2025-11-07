@@ -4057,13 +4057,13 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                     <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 Practical Application Effect</h3>
                     <p style="margin-bottom: 16px; line-height: 1.8; color: var(--text-secondary);">
-                        因此，你访问网络时的 IP 归属地取决于访问的目标网站类型：
+                        Therefore, the location of your IP address when accessing the internet depends on the type of website you are visiting：
                     </p>
                     <ul style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
-                        <li style="margin-bottom: 12px; color: var(--text-secondary);">👤 访问<strong>非 Cloudflare CDN
-                                站点</strong>时（如<b>油管、谷歌</b>等），你的 IP 归属地由「优选 IP」决定</li>
-                        <li style="color: var(--text-secondary);">🌐 访问<strong>由 Cloudflare CDN 托管的网站</strong>时（如<b>推特、ChatGPT</b>等），你的 IP
-                            归属地由「ProxyIP/SOCKS5/HTTP」决定</li>
+                        <li style="margin-bottom: 12px; color: var(--text-secondary);">👤 Visit<strong>Non-Cloudflare CDN
+                                Site</strong>（such as <b>YouTube、Google, </b>etc），Your IP address's location is determined by the「Preferred IP」</li>
+                        <li style="color: var(--text-secondary);">🌐 Visit<strong>Website hosted by Cloudflare CDN</strong>（such as <b>Twitter、ChatGP, </b>etc），Your IP
+                            address's location is determined by「ProxyIP/SOCKS5/HTTP」</li>
                     </ul>
                 </div>
             </div>
@@ -4071,11 +4071,11 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
             <!-- 切换按钮 -->
             <div class="toggle-switch">
                 <input type="checkbox" id="proxyIPSimpleMode" onchange="toggleProxyIPHelpMode()">
-                <label for="proxyIPSimpleMode">我是小白，我看不懂</label>
+                <label for="proxyIPSimpleMode">I'm a newbie, I don't understand</label>
             </div>
 
             <button type="button" class="btn btn-primary btn-close-modal" onclick="closeProxyIPHelpModal()"
-                style="margin-top: 20px;">关闭</button>
+                style="margin-top: 20px;">Close</button>
         </div>
     </div>
 
@@ -4268,7 +4268,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             // 总体百分比文字 (中央)
             const percentageCenterEl = document.getElementById('cfPercentageCenter');
-            percentageCenterEl.textContent = `请求使用进度: ${total.toLocaleString()} (${percentage}%)`;
+            percentageCenterEl.textContent = `Request Usage Progress: ${total.toLocaleString()} (${percentage}%)`;
         }
 
         async function loadCustomIPs() {
