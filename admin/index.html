@@ -4130,7 +4130,8 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
                 originalConfig = JSON.parse(JSON.stringify(currentConfig));
                 renderUI();
                 // 设置网页标题
-                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'channel404'} 设置页面 - 管理后台`;
+                document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'Channel404'} Settings Page - Management Backend`;
+                
             } catch (error) {
                 showToast('Configuration loading failed: ' + error.message, 'error');
             }
@@ -4138,9 +4139,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
         function renderUI() {
             // 标题
-            // document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'channel404') + ' settings page';
-            
-            document.getElementById('pageTitle').textContent = ('Channel404' || 'channel404') + ' Settings Page';
+            document.getElementById('pageTitle').textContent = (currentConfig.优选订阅生成?.SUBNAME || 'Channel404') + ' Settings Page';
 
             // 检查 CF 使用情况并显示模块
             const cfUsageModule = document.getElementById('cfUsageModule');
@@ -4765,7 +4764,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
             await saveConfigToServer('config');
             // 更新网页标题
-            document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'channel404'}设置页面 - 管理后台`;
+            document.title = `${currentConfig.优选订阅生成?.SUBNAME || 'Channel404'} Settings Page - Management Backend`;
         }
 
         async function saveProxy() {
@@ -5084,7 +5083,7 @@ https://raw.githubusercontent.com/nyeinkokoaung404/WorkerVless2sub/main/addresse
 
                 const container = document.getElementById('logsContainer');
                 if (recentLogs.length === 0) {
-                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: #6b7280;">暂无日志记录</div>';
+                    container.innerHTML = '<div style="text-align: center; padding: 20px; color: #6b7280;">No log records available</div>';
                     return;
                 }
 
